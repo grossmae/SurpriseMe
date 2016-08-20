@@ -12,9 +12,11 @@
 		200979CF1D67E100001C20DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 200979CD1D67E100001C20DF /* Main.storyboard */; };
 		200979D11D67E100001C20DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 200979D01D67E100001C20DF /* Assets.xcassets */; };
 		200979D41D67E100001C20DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 200979D21D67E100001C20DF /* LaunchScreen.storyboard */; };
+		C165F5E23584CC635E011257 /* Pods_SurpriseMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A904A362EB3171D5F8A33CF9 /* Pods_SurpriseMe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		026B894B7C712928A5092CEE /* Pods-SurpriseMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurpriseMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-SurpriseMe/Pods-SurpriseMe.release.xcconfig"; sourceTree = "<group>"; };
 		200979C61D67E100001C20DF /* SurpriseMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurpriseMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		200979C91D67E100001C20DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		200979CB1D67E100001C20DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		200979D01D67E100001C20DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		200979D31D67E100001C20DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		200979D51D67E100001C20DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AAFEF8F4AFB2D3E998580B5 /* Pods-SurpriseMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurpriseMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SurpriseMe/Pods-SurpriseMe.debug.xcconfig"; sourceTree = "<group>"; };
+		A904A362EB3171D5F8A33CF9 /* Pods_SurpriseMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurpriseMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C165F5E23584CC635E011257 /* Pods_SurpriseMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				200979C81D67E100001C20DF /* SurpriseMe */,
 				200979C71D67E100001C20DF /* Products */,
+				4CE4E70BAD50BF602A142DFD /* Pods */,
+				8CCB2D11F74C525F4F185C42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = SurpriseMe;
 			sourceTree = "<group>";
 		};
+		4CE4E70BAD50BF602A142DFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5AAFEF8F4AFB2D3E998580B5 /* Pods-SurpriseMe.debug.xcconfig */,
+				026B894B7C712928A5092CEE /* Pods-SurpriseMe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8CCB2D11F74C525F4F185C42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A904A362EB3171D5F8A33CF9 /* Pods_SurpriseMe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 200979D81D67E100001C20DF /* Build configuration list for PBXNativeTarget "SurpriseMe" */;
 			buildPhases = (
+				BF4D1C62849C9CDB120CF67F /* 📦 Check Pods Manifest.lock */,
 				200979C21D67E100001C20DF /* Sources */,
 				200979C31D67E100001C20DF /* Frameworks */,
 				200979C41D67E100001C20DF /* Resources */,
+				53B6BA74CF7F3907A34E0621 /* 📦 Embed Pods Frameworks */,
+				D8D3427680599D055255D790 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53B6BA74CF7F3907A34E0621 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SurpriseMe/Pods-SurpriseMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF4D1C62849C9CDB120CF67F /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D8D3427680599D055255D790 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SurpriseMe/Pods-SurpriseMe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		200979C21D67E100001C20DF /* Sources */ = {
@@ -249,6 +324,7 @@
 		};
 		200979D91D67E100001C20DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AAFEF8F4AFB2D3E998580B5 /* Pods-SurpriseMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SurpriseMe/Info.plist;
@@ -260,6 +336,7 @@
 		};
 		200979DA1D67E100001C20DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 026B894B7C712928A5092CEE /* Pods-SurpriseMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SurpriseMe/Info.plist;
@@ -288,6 +365,7 @@
 				200979DA1D67E100001C20DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
