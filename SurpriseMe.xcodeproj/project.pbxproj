@@ -59,13 +59,37 @@
 		200979C81D67E100001C20DF /* SurpriseMe */ = {
 			isa = PBXGroup;
 			children = (
+				20D5D4351D67E50C00AA4452 /* Utilities */,
+				20D5D4341D67E4ED00AA4452 /* Resources */,
+				20D5D4331D67E4E400AA4452 /* ViewControllers */,
 				200979C91D67E100001C20DF /* AppDelegate.swift */,
-				200979CB1D67E100001C20DF /* ViewController.swift */,
-				200979D01D67E100001C20DF /* Assets.xcassets */,
-				200979D21D67E100001C20DF /* LaunchScreen.storyboard */,
-				200979D51D67E100001C20DF /* Info.plist */,
 			);
 			path = SurpriseMe;
+			sourceTree = "<group>";
+		};
+		20D5D4331D67E4E400AA4452 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				200979CB1D67E100001C20DF /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		20D5D4341D67E4ED00AA4452 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				200979D51D67E100001C20DF /* Info.plist */,
+				200979D01D67E100001C20DF /* Assets.xcassets */,
+				200979D21D67E100001C20DF /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		20D5D4351D67E50C00AA4452 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		4CE4E70BAD50BF602A142DFD /* Pods */ = {
