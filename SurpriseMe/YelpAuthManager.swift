@@ -8,22 +8,28 @@
 
 import Alamofire
 import SwiftyJSON
+import Locksmith
 
 class YelpAuthManager {
     
     let authURL = "https://api.yelp.com/oauth2/token"
+    let yelpAccount = "yelp_credentials"
     let tokenKey = "yelp_token"
     let expKey = "yelp_exp"
     let authParams = ["grant_type":"",
                       "client_id":Config.yelp.appID,
                       "client_secret":Config.yelp.appSecret];
     
+    lazy var lockDic: [String:AnyObject?] = { [unowned self] in
+        return Locksmith.loadDataForUserAccount(self.yelpAccount) ?? [:]
+    }()
+    
     lazy var token: String? = { [unowned self] in
-        return NSUserDefaults.standardUserDefaults().stringForKey(self.tokenKey)
+        return self.lockDic[self.tokenKey] as? String
     }()
     
     lazy var expDate: NSDate? = { [unowned self] in
-        return NSUserDefaults.standardUserDefaults().objectForKey(self.expKey) as? NSDate
+        return self.lockDic[self.expKey] as? NSDate
     }()
     
     static let sharedInstance = YelpAuthManager()
@@ -55,10 +61,12 @@ class YelpAuthManager {
     
     func setToken(token: String, expiration: NSDate) {
         if tokenDateValid(expiration) {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setObject(expiration, forKey: expKey)
-            defaults.setObject(token, forKey: tokenKey)
-            defaults.synchronize()
+            do {
+                try Locksmith.updateData([expKey: expiration, tokenKey: token], forUserAccount: yelpAccount)
+            } catch {
+                print ("error")
+            }
+            
             self.token = token
             self.expDate = expiration
         } else {
@@ -67,10 +75,12 @@ class YelpAuthManager {
     }
     
     func clearToken() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(nil, forKey: expKey)
-        defaults.setObject(nil, forKey: tokenKey)
-        defaults.synchronize()
+        do {
+            try Locksmith.deleteDataForUserAccount(yelpAccount)
+        } catch {
+            
+        }
+        
         token = nil
         expDate = nil
     }
