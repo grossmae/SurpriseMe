@@ -9,5 +9,6 @@ target 'SurpriseMe' do
   pod 'Alamofire', '~> 3.4'
   pod 'SwiftyJSON'
   pod 'Locksmith'
-
+  pod 'SnapKit'
+  
 end

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		200979CA1D67E100001C20DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200979C91D67E100001C20DF /* AppDelegate.swift */; };
-		200979CC1D67E100001C20DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200979CB1D67E100001C20DF /* ViewController.swift */; };
+		200979CC1D67E100001C20DF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200979CB1D67E100001C20DF /* SearchViewController.swift */; };
 		200979D11D67E100001C20DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 200979D01D67E100001C20DF /* Assets.xcassets */; };
 		200979D41D67E100001C20DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 200979D21D67E100001C20DF /* LaunchScreen.storyboard */; };
 		20D5D4371D67E52F00AA4452 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4361D67E52F00AA4452 /* YelpClient.swift */; };
@@ -24,7 +24,7 @@
 		026B894B7C712928A5092CEE /* Pods-SurpriseMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurpriseMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-SurpriseMe/Pods-SurpriseMe.release.xcconfig"; sourceTree = "<group>"; };
 		200979C61D67E100001C20DF /* SurpriseMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurpriseMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		200979C91D67E100001C20DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		200979CB1D67E100001C20DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		200979CB1D67E100001C20DF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		200979D01D67E100001C20DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		200979D31D67E100001C20DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		200979D51D67E100001C20DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		20D5D4331D67E4E400AA4452 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				200979CB1D67E100001C20DF /* ViewController.swift */,
+				200979CB1D67E100001C20DF /* SearchViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -259,7 +259,7 @@
 				20D5D43B1D67E68E00AA4452 /* Config.swift in Sources */,
 				20D5D4441D6B87A400AA4452 /* YelpAuthManager.swift in Sources */,
 				20D5D4371D67E52F00AA4452 /* YelpClient.swift in Sources */,
-				200979CC1D67E100001C20DF /* ViewController.swift in Sources */,
+				200979CC1D67E100001C20DF /* SearchViewController.swift in Sources */,
 				20D5D4471D6D70E600AA4452 /* NSDate.swift in Sources */,
 				200979CA1D67E100001C20DF /* AppDelegate.swift in Sources */,
 				20D5D4491D6E08A600AA4452 /* SMLocationManager.swift in Sources */,
