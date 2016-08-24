@@ -12,49 +12,43 @@ class YelpClient {
     
     static let YelpBaseURL = "https://api.yelp.com/v3/"
     
+    static func searchForLocation(latitude: Double, longitude: Double, token: String, completion: (error: Error?) -> Void) {
+        
+        var urlComponents = baseURLComponents()
+        urlComponents.path = "/v3/businesses/search"
+        urlComponents = addQueryToURLComponents(urlComponents, name: "latitude", value: String(latitude))
+        urlComponents = addQueryToURLComponents(urlComponents, name: "longitude", value: String(longitude))
+        print(urlComponents.URL)
+        
+        Alamofire.request(.GET, urlComponents.URL!, headers: ["Authorization": "Bearer \(token)"])
+            .responseJSON { (response) in
+                print(response)
+                
+                var error: Error?
+                
+                switch response.result {
+                case .Success(let data):
+                    break
+                case .Failure:
+                    error = Error.RequestFailed
+                }
+                completion(error: error)
+        }
+    }
+
+    private static func baseURLComponents() -> NSURLComponents {
+        let urlComponents = NSURLComponents()
+        urlComponents.scheme = "https";
+        urlComponents.host = "api.yelp.com";
+        return urlComponents;
+    }
     
-    
-    
-//    static func searchForLocation(latitude: Double, longitude: Double, completion: (error: Error?) -> Void) {
-//        
-//        var urlComponents = baseURLComponents()
-//        urlComponents.path = "/v2/search"
-//        let latLongString = String(format: "%f,%f", latitude, longitude)
-//        urlComponents = addQueryToURLComponents(urlComponents, name: "ll", value: latLongString)
-//        print(urlComponents.URL)
-//        
-//        Alamofire.request(.GET, urlComponents.URL!)
-//            .responseJSON { (response) in
-//                print(response)
-//                
-//                var error: Error?
-//                
-//                switch response.result {
-//                case .Success(let data):
-//                    break
-//                case .Failure:
-//                    error = Error.RequestFailed
-//                }
-//                completion(error: error)
-//        }
-//    }
-//    
-//    private static func baseURLComponents() -> NSURLComponents {
-//        var urlComponents = NSURLComponents()
-//        urlComponents.scheme = "https";
-//        urlComponents.host = "api.foursquare.com";
-//        urlComponents = addQueryToURLComponents(urlComponents, name: "client_id", value: Constants.FourSquareClientID)
-//        urlComponents = addQueryToURLComponents(urlComponents, name: "client_secret", value: Constants.FourSquareClientSecret)
-//        urlComponents = addQueryToURLComponents(urlComponents, name: "v", value: "20160801")
-//        return urlComponents;
-//    }
-//    
-//    private static func addQueryToURLComponents(urlComponents: NSURLComponents, name: String, value: String) -> NSURLComponents {
-//        let query = NSURLQueryItem(name: name, value: value)
-//        if urlComponents.queryItems == nil {
-//            urlComponents.queryItems = []
-//        }
-//        urlComponents.queryItems?.append(query)
-//        return urlComponents
-//    }
+    private static func addQueryToURLComponents(urlComponents: NSURLComponents, name: String, value: String) -> NSURLComponents {
+        let query = NSURLQueryItem(name: name, value: value)
+        if urlComponents.queryItems == nil {
+            urlComponents.queryItems = []
+        }
+        urlComponents.queryItems?.append(query)
+        return urlComponents
+    }
 }
