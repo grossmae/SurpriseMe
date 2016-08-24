@@ -29,14 +29,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func testRoutine() {
-        YelpAuthManager.sharedInstance.getToken { (token) in
-            print(token)
-            if let token = token {
-                YelpClient.searchForLocation(34.052235, longitude: -118.243683, token: token) { (error) in
-                    
-                }
-            }
-        }
+        
+        SMLocationManager.sharedInstance.locationManager.requestWhenInUseAuthorization()
+        SMLocationManager.sharedInstance.locationManager.startUpdatingLocation()
+        
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.locationUpdated), name: SMLocationManager.LocationUpdatedNotification, object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.locationUpdateFailed), name: SMLocationManager.LocationUpdateFailedNotification, object: nil)
+        
+//        YelpAuthManager.sharedInstance.getToken { (token) in
+//            print(token)
+//            if let token = token {
+//                YelpClient.searchForLocation(34.052235, longitude: -118.243683, token: token) { (error) in
+//                    
+//                }
+//            }
+//        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
