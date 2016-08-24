@@ -29,7 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func testRoutine() {
-        YelpAuthManager.sharedInstance
+        YelpAuthManager.sharedInstance.getToken { (token) in
+            print(token)
+        }
+        
 //        YelpClient.searchForLocation(34.052235, longitude: -118.243683) { (error) in
 //            
 //        }
