@@ -16,6 +16,7 @@
 		20D5D43B1D67E68E00AA4452 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D43A1D67E68E00AA4452 /* Config.swift */; };
 		20D5D4441D6B87A400AA4452 /* YelpAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4431D6B87A400AA4452 /* YelpAuthManager.swift */; };
 		20D5D4471D6D70E600AA4452 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4461D6D70E600AA4452 /* NSDate.swift */; };
+		20D5D4491D6E08A600AA4452 /* SMLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4481D6E08A600AA4452 /* SMLocationManager.swift */; };
 		C165F5E23584CC635E011257 /* Pods_SurpriseMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A904A362EB3171D5F8A33CF9 /* Pods_SurpriseMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		20D5D43A1D67E68E00AA4452 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		20D5D4431D6B87A400AA4452 /* YelpAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpAuthManager.swift; sourceTree = "<group>"; };
 		20D5D4461D6D70E600AA4452 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
+		20D5D4481D6E08A600AA4452 /* SMLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLocationManager.swift; sourceTree = "<group>"; };
 		5AAFEF8F4AFB2D3E998580B5 /* Pods-SurpriseMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurpriseMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SurpriseMe/Pods-SurpriseMe.debug.xcconfig"; sourceTree = "<group>"; };
 		A904A362EB3171D5F8A33CF9 /* Pods_SurpriseMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurpriseMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				20D5D4431D6B87A400AA4452 /* YelpAuthManager.swift */,
 				20D5D43A1D67E68E00AA4452 /* Config.swift */,
 				20D5D4381D67E5FB00AA4452 /* Error.swift */,
+				20D5D4481D6E08A600AA4452 /* SMLocationManager.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				200979CC1D67E100001C20DF /* ViewController.swift in Sources */,
 				20D5D4471D6D70E600AA4452 /* NSDate.swift in Sources */,
 				200979CA1D67E100001C20DF /* AppDelegate.swift in Sources */,
+				20D5D4491D6E08A600AA4452 /* SMLocationManager.swift in Sources */,
 				20D5D4391D67E5FB00AA4452 /* Error.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
