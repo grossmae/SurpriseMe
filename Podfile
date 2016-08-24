@@ -7,5 +7,6 @@ target 'SurpriseMe' do
 
   # Pods for SurpriseMe
   pod 'Alamofire', '~> 3.4'
+  pod 'SwiftyJSON'
 
 end

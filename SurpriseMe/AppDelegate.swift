@@ -23,7 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navVC
         window?.makeKeyAndVisible()
         
+        testRoutine()
+        
         return true
+    }
+    
+    func testRoutine() {
+        YelpAuthManager.sharedInstance
+//        YelpClient.searchForLocation(34.052235, longitude: -118.243683) { (error) in
+//            
+//        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
