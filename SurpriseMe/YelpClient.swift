@@ -7,33 +7,36 @@
 //
 
 import Alamofire
+import RxSwift
 
 class YelpClient {
     
     static let YelpBaseURL = "https://api.yelp.com/v3/"
     
-    static func searchForLocation(latitude: Double, longitude: Double, token: String, completion: (error: Error?) -> Void) {
+    static func searchForLocation(latitude: Double, longitude: Double, token: String) -> Observable<[String]> {
         
-        var urlComponents = baseURLComponents()
-        urlComponents.path = "/v3/businesses/search"
-        urlComponents = addQueryToURLComponents(urlComponents, name: "latitude", value: String(latitude))
-        urlComponents = addQueryToURLComponents(urlComponents, name: "longitude", value: String(longitude))
-        print(urlComponents.URL)
-        
-        Alamofire.request(.GET, urlComponents.URL!, headers: ["Authorization": "Bearer \(token)"])
-            .responseJSON { (response) in
-                print(response)
-                
-                var error: Error?
-                
-                switch response.result {
-                case .Success(let data):
-                    break
-                case .Failure:
-                    error = Error.RequestFailed
-                }
-                completion(error: error)
+        return Observable.create { o in
+            var urlComponents = baseURLComponents()
+            urlComponents.path = "/v3/businesses/search"
+            urlComponents = addQueryToURLComponents(urlComponents, name: "latitude", value: String(latitude))
+            urlComponents = addQueryToURLComponents(urlComponents, name: "longitude", value: String(longitude))
+            
+            Alamofire.request(.GET, urlComponents.URL!, headers: ["Authorization": "Bearer \(token)"])
+                .responseJSON { (response) in
+                    print(response)
+                    
+                    switch response.result {
+                    case .Success(let data):
+                        o.onNext(["Got it"])
+                        o.onCompleted()
+                        break
+                    case .Failure:
+                        o.onError(Error.RequestFailed)
+                    }
+            }
+            return AnonymousDisposable { }
         }
+        
     }
 
     private static func baseURLComponents() -> NSURLComponents {

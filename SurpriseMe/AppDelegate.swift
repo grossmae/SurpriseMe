@@ -30,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func testRoutine() {
         
+        YelpAuthManager.sharedInstance.getToken()
+            .flatMap { token in
+                return YelpClient.searchForLocation(34.052235, longitude: -118.243683, token: token)
+            }
+            .subscribeNext { print($0) }
+            .dispose()
         
 //        SMLocationManager.sharedInstance.locationManager.requestWhenInUseAuthorization()
 //        SMLocationManager.sharedInstance.locationManager.startUpdatingLocation()
