@@ -6,7 +6,7 @@
 //  Copyright © 2016 Evan Grossman. All rights reserved.
 //
 
-enum Error : String {
-    case RequestFailed = "request_failed";
+enum Error : ErrorType {
+    case RequestFailed;
 }
 

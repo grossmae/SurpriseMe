@@ -10,5 +10,7 @@ target 'SurpriseMe' do
   pod 'SwiftyJSON'
   pod 'Locksmith'
   pod 'SnapKit'
+  pod 'RxSwift'
+  pod 'RxCocoa'
   
 end

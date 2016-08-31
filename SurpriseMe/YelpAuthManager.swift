@@ -9,6 +9,7 @@
 import Alamofire
 import SwiftyJSON
 import Locksmith
+import RxSwift
 
 class YelpAuthManager {
     
@@ -34,7 +35,32 @@ class YelpAuthManager {
     
     static let sharedInstance = YelpAuthManager()
     
-    func fetchToken(completion: ((token: String?) -> Void)?) {
+    func getToken() -> Observable<String> {
+        return Observable.create { [unowned self] o in
+            self.fetchToken { token in
+                if let token = token {
+                    o.onNext(token)
+                    o.onCompleted()
+                } else {
+                    o.onError(Error.RequestFailed)
+                }
+            }
+            
+            return AnonymousDisposable { }
+        }
+    }
+    
+    func fetchToken(completion: (token: String?) -> Void) {
+        if let token = self.token {
+            if tokenDateValid(self.expDate) {
+                completion(token: token)
+                return
+            }
+        }
+        requestToken(completion)
+    }
+    
+    func requestToken(completion: ((token: String?) -> Void)?) {
         Alamofire.request(.POST, authURL, parameters: authParams, encoding: .URL, headers: nil).responseJSON { (response) in
             
             print(response)
@@ -83,16 +109,6 @@ class YelpAuthManager {
         
         token = nil
         expDate = nil
-    }
-    
-    func getToken(completion: (token: String?) -> Void) {
-        if let token = self.token {
-            if tokenDateValid(self.expDate) {
-                completion(token: token)
-                return
-            }
-        }
-        fetchToken(completion)
     }
     
     func tokenDateValid(date: NSDate?) -> Bool {

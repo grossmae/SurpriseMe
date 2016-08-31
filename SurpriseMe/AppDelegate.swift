@@ -30,8 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func testRoutine() {
         
-        SMLocationManager.sharedInstance.locationManager.requestWhenInUseAuthorization()
-        SMLocationManager.sharedInstance.locationManager.startUpdatingLocation()
+        
+//        SMLocationManager.sharedInstance.locationManager.requestWhenInUseAuthorization()
+//        SMLocationManager.sharedInstance.locationManager.startUpdatingLocation()
         
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.locationUpdated), name: SMLocationManager.LocationUpdatedNotification, object: nil)
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.locationUpdateFailed), name: SMLocationManager.LocationUpdateFailedNotification, object: nil)

@@ -1,21 +1,28 @@
 PODS:
   - Alamofire (3.4.1)
   - Locksmith (2.0.8)
+  - RxCocoa (2.6.0):
+    - RxSwift (~> 2.5)
+  - RxSwift (2.6.0)
   - SnapKit (0.21.1)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
   - Locksmith
+  - RxCocoa
+  - RxSwift
   - SnapKit
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
+  RxCocoa: 89ab00d5753502520227940e3a0e0a0413683c6b
+  RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
   SnapKit: bbad04cb016c7cead63965f16b00c09318d271ee
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: f7e0970f3590151a0cc217ec10e1f8d933dcc4c6
+PODFILE CHECKSUM: 4b5c9ef408dbedb0e5adaf2e057f7a6adf0e157b
 
 COCOAPODS: 1.0.0
