@@ -48,7 +48,17 @@ class SearchViewController: UIViewController {
                     return Observable.error(Error.RequestFailed)
                 }
             }
-            .subscribeNext { print($0) }
+            .subscribeNext { [weak self] results in
+                self?.fetchedSearchResults(results)
+            }
             .addDisposableTo(disposeBag)
+    }
+    
+    private func fetchedSearchResults(locations: [SMLocation]) {
+        if let loc = locations.sample {
+            let mapVC = MapViewController(location: loc)
+            presentViewController(mapVC, animated: true, completion: nil)
+        }
+        
     }
 }
