@@ -13,6 +13,10 @@ import RxSwift
 
 class YelpAuthManager {
     
+    static let sharedInstance = YelpAuthManager()
+    
+    private init() { }
+    
     let authURL = "https://api.yelp.com/oauth2/token"
     let yelpAccount = "yelp_credentials"
     let tokenKey = "yelp_token"
@@ -32,8 +36,6 @@ class YelpAuthManager {
     lazy var expDate: NSDate? = { [unowned self] in
         return self.lockDic[self.expKey] as? NSDate
     }()
-    
-    static let sharedInstance = YelpAuthManager()
     
     func getToken() -> Observable<String> {
         return Observable.create { [unowned self] o in

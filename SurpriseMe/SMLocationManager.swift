@@ -7,29 +7,19 @@
 //
 
 import Foundation
-
-import Foundation
 import CoreLocation
 import RxSwift
 import RxCocoa
 
-class SMLocationManager: NSObject {
-    
-    static let LocationUpdatedNotification = "LocationUpdatedNotification"
-    static let LocationUpdateFailedNotification = "LocationUpdateFailedNotification"
-    static let LocationKey = "location"
+class SMLocationManager {
     
     static let sharedInstance = SMLocationManager()
     
     let locationManager = CLLocationManager()
     var latestLocation: Variable<CLLocation?> = Variable(nil)
     
-    override init() {
-        super.init()
-        
+    private init() {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
     }
-    
-    
 }

@@ -33,21 +33,6 @@ class SearchViewController: UIViewController {
     func searchButtonPressed() {
         SMLocationManager.sharedInstance.locationManager.requestWhenInUseAuthorization()
         SMLocationManager.sharedInstance.locationManager.startUpdatingLocation()
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(locationUpdated), name: SMLocationManager.LocationUpdatedNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(locationUpdateFailed), name: SMLocationManager.LocationUpdateFailedNotification, object: nil)
     }
-    
-    func locationUpdated(notification: NSNotification) {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        if let location = notification.userInfo?[SMLocationManager.LocationKey] as? CLLocation {
-//            goToMapWithLatitude(location.coordinate.latitude, longitude: location.coordinate.longitude)
-        }
-    }
-    
-    func locationUpdateFailed(notification: NSNotification) {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-
 }
 
