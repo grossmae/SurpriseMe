@@ -10,6 +10,8 @@ import Foundation
 
 import Foundation
 import CoreLocation
+import RxSwift
+import RxCocoa
 
 class SMLocationManager: NSObject {
     
@@ -20,26 +22,14 @@ class SMLocationManager: NSObject {
     static let sharedInstance = SMLocationManager()
     
     let locationManager = CLLocationManager()
-    var latestLocation: CLLocation?
+    var latestLocation: Variable<CLLocation?> = Variable(nil)
     
     override init() {
         super.init()
-        locationManager.delegate = self
+        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
     }
-}
-
-extension SMLocationManager: CLLocationManagerDelegate {
     
-    func locationManager( manager: CLLocationManager,
-                          didUpdateLocations locations: [CLLocation]) {
-        if let latestLocation = locations.first {
-            NSNotificationCenter.defaultCenter().postNotificationName(SMLocationManager.LocationUpdatedNotification, object: self, userInfo: [SMLocationManager.LocationKey:latestLocation])
-        }
-    }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        NSNotificationCenter.defaultCenter().postNotificationName(SMLocationManager.LocationUpdateFailedNotification, object: self, userInfo: nil)
-    }
 }

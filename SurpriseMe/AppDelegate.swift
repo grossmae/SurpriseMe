@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import RxSwift
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let disposeBag = DisposeBag()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -30,15 +33,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func testRoutine() {
         
-        YelpAuthManager.sharedInstance.getToken()
-            .flatMap { token in
-                return YelpClient.searchForLocation(34.052235, longitude: -118.243683, token: token)
-            }
-            .subscribeNext { print($0) }
-            .dispose()
+//        YelpAuthManager.sharedInstance.getToken()
+//            .flatMap { token in
+//                return YelpClient.searchForLocation(34.052235, longitude: -118.243683, token: token)
+//            }
+//            .subscribeNext { print($0) }
+//            .dispose()
         
-//        SMLocationManager.sharedInstance.locationManager.requestWhenInUseAuthorization()
-//        SMLocationManager.sharedInstance.locationManager.startUpdatingLocation()
+        
+        SMLocationManager.sharedInstance.locationManager.rx_didUpdateLocations
+            .subscribe {
+                print($0)
+            }
+            .addDisposableTo(disposeBag)
+
+
+        
         
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.locationUpdated), name: SMLocationManager.LocationUpdatedNotification, object: nil)
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.locationUpdateFailed), name: SMLocationManager.LocationUpdateFailedNotification, object: nil)
