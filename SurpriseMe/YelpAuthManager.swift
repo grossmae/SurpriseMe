@@ -65,8 +65,6 @@ class YelpAuthManager {
     func requestToken(completion: ((token: String?) -> Void)?) {
         Alamofire.request(.POST, authURL, parameters: authParams, encoding: .URL, headers: nil).responseJSON { (response) in
             
-            print(response)
-            
             switch response.result {
             case .Success(let data):
                

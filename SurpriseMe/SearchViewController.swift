@@ -41,7 +41,7 @@ class SearchViewController: UIViewController {
         Observable.zip(locManager.rx_didUpdateLocations, YelpAuthManager.sharedInstance.getToken()) {
             return ($0, $1)
             }
-            .flatMap { (locations, token) -> Observable<[String]> in
+            .flatMap { (locations, token) -> Observable<[SMLocation]> in
                 if let location = locations.first {
                     return YelpClient.searchForLocation(location.coordinate.latitude, longitude: location.coordinate.longitude, token: token)
                 } else {

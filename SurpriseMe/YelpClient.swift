@@ -8,12 +8,13 @@
 
 import Alamofire
 import RxSwift
+import SwiftyJSON
 
 class YelpClient {
     
     static let YelpBaseURL = "https://api.yelp.com/v3/"
     
-    static func searchForLocation(latitude: Double, longitude: Double, token: String) -> Observable<[String]> {
+    static func searchForLocation(latitude: Double, longitude: Double, token: String) -> Observable<[SMLocation]> {
         
         return Observable.create { o in
             var urlComponents = baseURLComponents()
@@ -23,11 +24,11 @@ class YelpClient {
             
             Alamofire.request(.GET, urlComponents.URL!, headers: ["Authorization": "Bearer \(token)"])
                 .responseJSON { (response) in
-                    print(response)
-                    
                     switch response.result {
                     case .Success(let data):
-                        o.onNext(["Got it"])
+                        let json = JSON(data)
+                        let locations = YelpLocationParser.parseLocationsFromJSON(json)
+                        o.onNext(locations)
                         o.onCompleted()
                         break
                     case .Failure:

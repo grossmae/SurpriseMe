@@ -17,6 +17,13 @@
 		20D5D4441D6B87A400AA4452 /* YelpAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4431D6B87A400AA4452 /* YelpAuthManager.swift */; };
 		20D5D4471D6D70E600AA4452 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4461D6D70E600AA4452 /* NSDate.swift */; };
 		20D5D4491D6E08A600AA4452 /* SMLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4481D6E08A600AA4452 /* SMLocationManager.swift */; };
+		20ED56DB1D7771B90083C408 /* SMLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56DA1D7771B90083C408 /* SMLocation.swift */; };
+		20ED56DD1D7772290083C408 /* SMAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56DC1D7772290083C408 /* SMAddress.swift */; };
+		20ED56DF1D77729C0083C408 /* SMPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56DE1D77729C0083C408 /* SMPrice.swift */; };
+		20ED56E11D7772D60083C408 /* SMRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56E01D7772D60083C408 /* SMRating.swift */; };
+		20ED56E31D7773670083C408 /* SMCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56E21D7773670083C408 /* SMCategories.swift */; };
+		20ED56E51D7775CD0083C408 /* SMHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56E41D7775CD0083C408 /* SMHours.swift */; };
+		20ED56E71D7777410083C408 /* YelpLocationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56E61D7777410083C408 /* YelpLocationParser.swift */; };
 		C165F5E23584CC635E011257 /* Pods_SurpriseMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A904A362EB3171D5F8A33CF9 /* Pods_SurpriseMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +41,13 @@
 		20D5D4431D6B87A400AA4452 /* YelpAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpAuthManager.swift; sourceTree = "<group>"; };
 		20D5D4461D6D70E600AA4452 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		20D5D4481D6E08A600AA4452 /* SMLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLocationManager.swift; sourceTree = "<group>"; };
+		20ED56DA1D7771B90083C408 /* SMLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLocation.swift; sourceTree = "<group>"; };
+		20ED56DC1D7772290083C408 /* SMAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMAddress.swift; sourceTree = "<group>"; };
+		20ED56DE1D77729C0083C408 /* SMPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMPrice.swift; sourceTree = "<group>"; };
+		20ED56E01D7772D60083C408 /* SMRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRating.swift; sourceTree = "<group>"; };
+		20ED56E21D7773670083C408 /* SMCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMCategories.swift; sourceTree = "<group>"; };
+		20ED56E41D7775CD0083C408 /* SMHours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMHours.swift; sourceTree = "<group>"; };
+		20ED56E61D7777410083C408 /* YelpLocationParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpLocationParser.swift; sourceTree = "<group>"; };
 		5AAFEF8F4AFB2D3E998580B5 /* Pods-SurpriseMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurpriseMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SurpriseMe/Pods-SurpriseMe.debug.xcconfig"; sourceTree = "<group>"; };
 		A904A362EB3171D5F8A33CF9 /* Pods_SurpriseMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurpriseMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -71,6 +85,7 @@
 		200979C81D67E100001C20DF /* SurpriseMe */ = {
 			isa = PBXGroup;
 			children = (
+				20ED56D91D77719F0083C408 /* Models */,
 				20D5D4451D6D70D500AA4452 /* Extensions */,
 				20D5D4351D67E50C00AA4452 /* Utilities */,
 				20D5D4341D67E4ED00AA4452 /* Resources */,
@@ -106,6 +121,7 @@
 				20D5D43A1D67E68E00AA4452 /* Config.swift */,
 				20D5D4381D67E5FB00AA4452 /* Error.swift */,
 				20D5D4481D6E08A600AA4452 /* SMLocationManager.swift */,
+				20ED56E61D7777410083C408 /* YelpLocationParser.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -116,6 +132,19 @@
 				20D5D4461D6D70E600AA4452 /* NSDate.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		20ED56D91D77719F0083C408 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				20ED56DA1D7771B90083C408 /* SMLocation.swift */,
+				20ED56E21D7773670083C408 /* SMCategories.swift */,
+				20ED56E01D7772D60083C408 /* SMRating.swift */,
+				20ED56DC1D7772290083C408 /* SMAddress.swift */,
+				20ED56DE1D77729C0083C408 /* SMPrice.swift */,
+				20ED56E41D7775CD0083C408 /* SMHours.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		4CE4E70BAD50BF602A142DFD /* Pods */ = {
@@ -257,12 +286,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				20D5D43B1D67E68E00AA4452 /* Config.swift in Sources */,
+				20ED56DF1D77729C0083C408 /* SMPrice.swift in Sources */,
 				20D5D4441D6B87A400AA4452 /* YelpAuthManager.swift in Sources */,
 				20D5D4371D67E52F00AA4452 /* YelpClient.swift in Sources */,
+				20ED56E71D7777410083C408 /* YelpLocationParser.swift in Sources */,
 				200979CC1D67E100001C20DF /* SearchViewController.swift in Sources */,
+				20ED56DD1D7772290083C408 /* SMAddress.swift in Sources */,
 				20D5D4471D6D70E600AA4452 /* NSDate.swift in Sources */,
 				200979CA1D67E100001C20DF /* AppDelegate.swift in Sources */,
+				20ED56DB1D7771B90083C408 /* SMLocation.swift in Sources */,
+				20ED56E51D7775CD0083C408 /* SMHours.swift in Sources */,
+				20ED56E31D7773670083C408 /* SMCategories.swift in Sources */,
 				20D5D4491D6E08A600AA4452 /* SMLocationManager.swift in Sources */,
+				20ED56E11D7772D60083C408 /* SMRating.swift in Sources */,
 				20D5D4391D67E5FB00AA4452 /* Error.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
