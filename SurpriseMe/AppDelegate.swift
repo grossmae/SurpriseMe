@@ -40,12 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            .subscribeNext { print($0) }
 //            .dispose()
         
-        
-        SMLocationManager.sharedInstance.locationManager.rx_didUpdateLocations
-            .subscribe {
-                print($0)
-            }
-            .addDisposableTo(disposeBag)
+//        
+//        SMLocationManager.sharedInstance.locationManager.rx_didUpdateLocations
+//            .subscribe {
+//                print($0)
+//            }
+//            .addDisposableTo(disposeBag)
 
 
         

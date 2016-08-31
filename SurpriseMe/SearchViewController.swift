@@ -9,9 +9,12 @@
 import UIKit
 import SnapKit
 import CoreLocation
+import RxSwift
 
 class SearchViewController: UIViewController {
 
+    let disposeBag = DisposeBag()
+    
     let searchButton: UIButton = {
        let searchButton = UIButton()
         searchButton.setTitle("Search", forState: .Normal)
@@ -31,8 +34,21 @@ class SearchViewController: UIViewController {
     }
     
     func searchButtonPressed() {
-        SMLocationManager.sharedInstance.locationManager.requestWhenInUseAuthorization()
-        SMLocationManager.sharedInstance.locationManager.startUpdatingLocation()
+
+        let locManager = SMLocationManager.sharedInstance.locationManager
+        locManager.startUpdatingLocation()
+        
+        Observable.zip(locManager.rx_didUpdateLocations, YelpAuthManager.sharedInstance.getToken()) {
+            return ($0, $1)
+            }
+            .flatMap { (locations, token) -> Observable<[String]> in
+                if let location = locations.first {
+                    return YelpClient.searchForLocation(location.coordinate.latitude, longitude: location.coordinate.longitude, token: token)
+                } else {
+                    return Observable.error(Error.RequestFailed)
+                }
+            }
+            .subscribeNext { print($0) }
+            .addDisposableTo(disposeBag)
     }
 }
-
