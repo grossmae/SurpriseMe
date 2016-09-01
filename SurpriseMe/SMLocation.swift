@@ -23,4 +23,8 @@ struct SMLocation {
     
     let categories: [SMCategory]
     var openTimes: [SMHours]?
+    
+    var clLoc: CLLocation{
+        return CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+    }
 }

@@ -33,34 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func testRoutine() {
         
-//        YelpAuthManager.sharedInstance.getToken()
-//            .flatMap { token in
-//                return YelpClient.searchForLocation(34.052235, longitude: -118.243683, token: token)
-//            }
-//            .subscribeNext { print($0) }
-//            .dispose()
-        
-//        
-//        SMLocationManager.sharedInstance.locationManager.rx_didUpdateLocations
-//            .subscribe {
-//                print($0)
-//            }
-//            .addDisposableTo(disposeBag)
-
-
-        
-        
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.locationUpdated), name: SMLocationManager.LocationUpdatedNotification, object: nil)
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RootViewController.locationUpdateFailed), name: SMLocationManager.LocationUpdateFailedNotification, object: nil)
-        
-//        YelpAuthManager.sharedInstance.getToken { (token) in
-//            print(token)
-//            if let token = token {
-//                YelpClient.searchForLocation(34.052235, longitude: -118.243683, token: token) { (error) in
-//                    
-//                }
-//            }
-//        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
