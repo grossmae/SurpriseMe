@@ -1,0 +1,1 @@
+SupriseMe is an app the will take all the decision making out of choosing a spot to eat.  The only decision is to trust the app which will direct you to an unknown restaurant within walking distance.  By the time you arrive, you'll find your spot and hopefully be pleasantly surprised!
