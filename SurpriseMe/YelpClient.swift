@@ -21,6 +21,14 @@ class YelpClient {
             urlComponents.path = "/v3/businesses/search"
             urlComponents = addQueryToURLComponents(urlComponents, name: "latitude", value: String(latitude))
             urlComponents = addQueryToURLComponents(urlComponents, name: "longitude", value: String(longitude))
+            let defaultSearchOptions = SMSearchOptions()
+            urlComponents = addQueryToURLComponents(urlComponents, name: "term", value: defaultSearchOptions.term)
+            let sortOption = defaultSearchOptions.sort
+            urlComponents = addQueryToURLComponents(urlComponents, name: "sort", value: sortOption.rawValue)
+            if sortOption == .HighestRated || sortOption == .Closest {
+                urlComponents = addQueryToURLComponents(urlComponents, name: "limit", value: "10")
+            }
+            urlComponents = addQueryToURLComponents(urlComponents, name: "radius", value: defaultSearchOptions.radius.rawValue)
             
             Alamofire.request(.GET, urlComponents.URL!, headers: ["Authorization": "Bearer \(token)"])
                 .responseJSON { (response) in

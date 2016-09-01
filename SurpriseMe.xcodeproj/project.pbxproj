@@ -27,6 +27,7 @@
 		20ED56E91D7785870083C408 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56E81D7785870083C408 /* ResultsViewController.swift */; };
 		20ED56EB1D7787DF0083C408 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56EA1D7787DF0083C408 /* MapViewController.swift */; };
 		20ED56ED1D778A5D0083C408 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56EC1D778A5D0083C408 /* Array.swift */; };
+		20ED56EF1D7800490083C408 /* SMSearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56EE1D7800490083C408 /* SMSearchOptions.swift */; };
 		C165F5E23584CC635E011257 /* Pods_SurpriseMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A904A362EB3171D5F8A33CF9 /* Pods_SurpriseMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		20ED56E81D7785870083C408 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		20ED56EA1D7787DF0083C408 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		20ED56EC1D778A5D0083C408 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		20ED56EE1D7800490083C408 /* SMSearchOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSearchOptions.swift; sourceTree = "<group>"; };
 		5AAFEF8F4AFB2D3E998580B5 /* Pods-SurpriseMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurpriseMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SurpriseMe/Pods-SurpriseMe.debug.xcconfig"; sourceTree = "<group>"; };
 		A904A362EB3171D5F8A33CF9 /* Pods_SurpriseMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurpriseMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 				20ED56DC1D7772290083C408 /* SMAddress.swift */,
 				20ED56DE1D77729C0083C408 /* SMPrice.swift */,
 				20ED56E41D7775CD0083C408 /* SMHours.swift */,
+				20ED56EE1D7800490083C408 /* SMSearchOptions.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				20ED56ED1D778A5D0083C408 /* Array.swift in Sources */,
 				200979CA1D67E100001C20DF /* AppDelegate.swift in Sources */,
 				20ED56DB1D7771B90083C408 /* SMLocation.swift in Sources */,
+				20ED56EF1D7800490083C408 /* SMSearchOptions.swift in Sources */,
 				20ED56E51D7775CD0083C408 /* SMHours.swift in Sources */,
 				20ED56E31D7773670083C408 /* SMCategories.swift in Sources */,
 				20D5D4491D6E08A600AA4452 /* SMLocationManager.swift in Sources */,
