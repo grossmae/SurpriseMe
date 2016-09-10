@@ -30,7 +30,6 @@ class SearchViewController: SMViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
         navigationController?.navigationBarHidden = true
         
         view.addSubview(optionsButton)
@@ -78,7 +77,8 @@ class SearchViewController: SMViewController {
     private func fetchedSearchResults(locations: [SMLocation]) {
         if let loc = locations.sample {
             let mapVC = MapViewController(location: loc)
-            presentViewController(mapVC, animated: true, completion: nil)
+            let navController = UINavigationController(rootViewController: mapVC)
+            presentViewController(navController, animated: true, completion: nil)
         }
         
     }

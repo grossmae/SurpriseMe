@@ -15,6 +15,7 @@ class MapViewController: UIViewController {
     let RegionRadius: CLLocationDistance = 1000
     
     let disposeBag = DisposeBag()
+    let locManager = SMLocationManager.sharedInstance.locationManager
     
     let mapView = MKMapView()
     
@@ -31,6 +32,12 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBarHidden = false
+        navigationController?.navigationBar.translucent = false
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: #selector(MapViewController.closePressed))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open in Maps", style: .Plain, target: self, action: #selector(MapViewController.openInMapsPressed))
         
         view.addSubview(mapView)
         mapView.snp_makeConstraints { (make) in
@@ -43,9 +50,25 @@ class MapViewController: UIViewController {
         fetchCurrentLocation()
     }
     
+    func closePressed() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func openInMapsPressed() {
+        locManager.startUpdatingLocation()
+        locManager.rx_didUpdateLocations
+        .take(1)
+        .subscribeNext { [unowned self] (locations) in
+            if let location = locations.first {
+                let mapURL = MapHelper.mapURLFromLocation(location.coordinate, toLocation: self.finishLocation.coordinates)
+                UIApplication.sharedApplication().openURL(mapURL)
+            }
+        }.addDisposableTo(disposeBag)
+    }
+    
     func fetchCurrentLocation() {
         
-        let locManager = SMLocationManager.sharedInstance.locationManager
+        
         locManager.startUpdatingLocation()
         
         locManager.rx_didUpdateLocations
