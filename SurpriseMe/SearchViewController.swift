@@ -23,7 +23,7 @@ class SearchViewController: SMViewController {
     
     let searchButton: UIButton = {
        let searchButton = UIButton()
-        searchButton.setTitle("Search", forState: .Normal)
+        searchButton.setTitle("search".localized, forState: .Normal)
         searchButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         return searchButton
     }()

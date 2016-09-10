@@ -35,9 +35,9 @@ class MapViewController: UIViewController {
         navigationController?.navigationBarHidden = false
         navigationController?.navigationBar.translucent = false
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: #selector(MapViewController.closePressed))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "close".localized, style: .Plain, target: self, action: #selector(MapViewController.closePressed))
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open in Maps", style: .Plain, target: self, action: #selector(MapViewController.openInMapsPressed))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "open_in_maps".localized, style: .Plain, target: self, action: #selector(MapViewController.openInMapsPressed))
         
         view.addSubview(mapView)
         mapView.snp_makeConstraints { (make) in
@@ -92,13 +92,13 @@ class MapViewController: UIViewController {
         let startMapItem = MKMapItem(placemark: startPlacemark)
         let startAnnotation = MKPointAnnotation()
         startAnnotation.coordinate = startLocation.coordinate
-        startAnnotation.title = "Start"
+        startAnnotation.title = "start".localized
         
         let finishPlacemark = MKPlacemark(coordinate: finishLocation.coordinates, addressDictionary: nil)
         let finishMapItem = MKMapItem(placemark: finishPlacemark)
         let finishAnnotation = MKPointAnnotation()
         finishAnnotation.coordinate = finishLocation.coordinates
-        finishAnnotation.title = "Finish"
+        finishAnnotation.title = "finish".localized
         
         mapView.showAnnotations([finishAnnotation], animated: false)
         

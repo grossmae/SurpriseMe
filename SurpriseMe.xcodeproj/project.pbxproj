@@ -12,6 +12,8 @@
 		200979D11D67E100001C20DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 200979D01D67E100001C20DF /* Assets.xcassets */; };
 		200979D41D67E100001C20DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 200979D21D67E100001C20DF /* LaunchScreen.storyboard */; };
 		2041E0701D83EE2600898A9B /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041E06F1D83EE2600898A9B /* MapHelper.swift */; };
+		2041E0721D83F0AA00898A9B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041E0711D83F0AA00898A9B /* String.swift */; };
+		2041E0741D83F0CB00898A9B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2041E0731D83F0CB00898A9B /* Localizable.strings */; };
 		20D5D4371D67E52F00AA4452 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4361D67E52F00AA4452 /* YelpClient.swift */; };
 		20D5D4391D67E5FB00AA4452 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4381D67E5FB00AA4452 /* Error.swift */; };
 		20D5D43B1D67E68E00AA4452 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D43A1D67E68E00AA4452 /* Config.swift */; };
@@ -43,6 +45,8 @@
 		200979D31D67E100001C20DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		200979D51D67E100001C20DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2041E06F1D83EE2600898A9B /* MapHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
+		2041E0711D83F0AA00898A9B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		2041E0731D83F0CB00898A9B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		20D5D4361D67E52F00AA4452 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
 		20D5D4381D67E5FB00AA4452 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		20D5D43A1D67E68E00AA4452 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 				200979D51D67E100001C20DF /* Info.plist */,
 				200979D01D67E100001C20DF /* Assets.xcassets */,
 				200979D21D67E100001C20DF /* LaunchScreen.storyboard */,
+				2041E0731D83F0CB00898A9B /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				20D5D4461D6D70E600AA4452 /* NSDate.swift */,
+				2041E0711D83F0AA00898A9B /* String.swift */,
 				20ED56EC1D778A5D0083C408 /* Array.swift */,
 			);
 			name = Extensions;
@@ -263,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				200979D41D67E100001C20DF /* LaunchScreen.storyboard in Resources */,
+				2041E0741D83F0CB00898A9B /* Localizable.strings in Resources */,
 				200979D11D67E100001C20DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +331,7 @@
 			files = (
 				20D5D43B1D67E68E00AA4452 /* Config.swift in Sources */,
 				20ED56DF1D77729C0083C408 /* SMPrice.swift in Sources */,
+				2041E0721D83F0AA00898A9B /* String.swift in Sources */,
 				20D5D4441D6B87A400AA4452 /* YelpAuthManager.swift in Sources */,
 				20D5D4371D67E52F00AA4452 /* YelpClient.swift in Sources */,
 				2041E0701D83EE2600898A9B /* MapHelper.swift in Sources */,

@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  SurpriseMe
+
+  Created by Evan Grossman on 9/10/16.
+  Copyright © 2016 Evan Grossman. All rights reserved.
+*/
+
+// SearchVC
+"search" = "Search";
+
+// MapVC
+"open_in_maps" = "Open in Maps";
+"start" = "Start";
+"finish" = "Finish";
+
+// Misc
+"close" = "Close";
