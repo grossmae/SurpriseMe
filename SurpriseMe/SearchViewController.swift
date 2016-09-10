@@ -15,12 +15,6 @@ class SearchViewController: SMViewController {
 
     let disposeBag = DisposeBag()
     
-    let optionsButton: UIButton = {
-        let optionsButton = UIButton()
-        optionsButton.backgroundColor = UIColor.blackColor()
-        return optionsButton
-    }()
-    
     let searchButton: UIButton = {
        let searchButton = UIButton()
         searchButton.setTitle("search".localized, forState: .Normal)
@@ -31,14 +25,6 @@ class SearchViewController: SMViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBarHidden = true
-        
-        view.addSubview(optionsButton)
-        optionsButton.snp_makeConstraints { (make) in
-            make.height.equalTo(20)
-            make.width.equalTo(20)
-            make.top.equalTo(24)
-            make.right.equalTo(-4)
-        }
         
         view.addSubview(searchButton)
         searchButton.snp_makeConstraints { (make) in
