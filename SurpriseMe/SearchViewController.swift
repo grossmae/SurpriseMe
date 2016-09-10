@@ -11,18 +11,35 @@ import SnapKit
 import CoreLocation
 import RxSwift
 
-class SearchViewController: UIViewController {
+class SearchViewController: SMViewController {
 
     let disposeBag = DisposeBag()
+    
+    let optionsButton: UIButton = {
+        let optionsButton = UIButton()
+        optionsButton.backgroundColor = UIColor.blackColor()
+        return optionsButton
+    }()
     
     let searchButton: UIButton = {
        let searchButton = UIButton()
         searchButton.setTitle("Search", forState: .Normal)
+        searchButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         return searchButton
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.whiteColor()
+        navigationController?.navigationBarHidden = true
+        
+        view.addSubview(optionsButton)
+        optionsButton.snp_makeConstraints { (make) in
+            make.height.equalTo(20)
+            make.width.equalTo(20)
+            make.top.equalTo(24)
+            make.right.equalTo(-4)
+        }
         
         view.addSubview(searchButton)
         searchButton.snp_makeConstraints { (make) in
@@ -52,6 +69,10 @@ class SearchViewController: UIViewController {
                 self?.fetchedSearchResults(results)
             }
             .addDisposableTo(disposeBag)
+    }
+    
+    func optionsButtonPressed() {
+        
     }
     
     private func fetchedSearchResults(locations: [SMLocation]) {
