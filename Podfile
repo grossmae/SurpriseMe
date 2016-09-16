@@ -7,10 +7,10 @@ target 'SurpriseMe' do
 
   # Pods for SurpriseMe
   pod 'Alamofire', '~> 3.4'
-  pod 'SwiftyJSON'
-  pod 'Locksmith'
-  pod 'SnapKit'
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'SwiftyJSON', '~> 2.3.2'
+  pod 'Locksmith', '~> 2.0.8'
+  pod 'SnapKit', '~> 0.21.1'
+  pod 'RxSwift', '~> 2.6.0'
+  pod 'RxCocoa', '~> 2.6.0'
   
 end
