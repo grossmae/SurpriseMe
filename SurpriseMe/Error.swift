@@ -8,5 +8,7 @@
 
 enum Error : ErrorType {
     case RequestFailed;
+    case YelpAuthFailed;
+    case LocationUpdateFailed;
 }
 

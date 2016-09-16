@@ -39,21 +39,27 @@ class SearchViewController: SMViewController {
     
     func searchButtonPressed() {
 
-        let locManager = SMLocationManager.sharedInstance.locationManager
         locManager.startUpdatingLocation()
         
-        Observable.zip(locManager.rx_didUpdateLocations, YelpAuthManager.sharedInstance.getToken()) {
+        Observable.zip(SMLocationManager.sharedInstance.getLocation(), YelpAuthManager.sharedInstance.getToken()) {
             return ($0, $1)
             }
-            .flatMap { (locations, token) -> Observable<[SMLocation]> in
+            .flatMap { ( locations, token) -> Observable<[SMLocation]> in
                 if let location = locations.first {
                     return YelpClient.searchForLocation(location.coordinate.latitude, longitude: location.coordinate.longitude, token: token)
                 } else {
                     return Observable.error(Error.RequestFailed)
                 }
             }
-            .subscribeNext { [weak self] results in
-                self?.fetchedSearchResults(results)
+            .subscribe{ event in
+                switch event {
+                case .Next(let results):
+                    print(results)
+                case .Error(let error):
+                    print("Error is ", error)
+                case .Completed:
+                    print("Completed")
+                }
             }
             .addDisposableTo(disposeBag)
     }

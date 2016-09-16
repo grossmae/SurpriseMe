@@ -22,4 +22,8 @@ class SMLocationManager {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
     }
+    
+    func getLocation() -> Observable<[CLLocation]> {
+        return locationManager.rx_didUpdateLocations
+    }
 }
