@@ -22,6 +22,8 @@ class SearchViewController: SMViewController {
         return searchButton
     }()
     
+    let locManager = SMLocationManager.sharedInstance.locationManager
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBarHidden = true
