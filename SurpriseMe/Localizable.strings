@@ -16,3 +16,11 @@
 
 // Misc
 "close" = "Close";
+
+// Error Alert Messages
+"location_update_failed_title" = "Location Update Failed";
+"location_update_failed_message" = "Could not get your current location.  Please check for permission in the iOS Settings menu.";
+"request_failed_title" = "Request Failed";
+"request_failed_message" = "Could not reach the server.  Please check your device's connection and try again.";
+"yelp_auth_failed_title" = "Could not reach Yelp";
+"yelp_auth_failed_message" = "This really shouldn't happen, but please try again in a little bit.";
