@@ -1,1 +1,3 @@
 How often does it take longer to decide where to eat than to actually eat?  Stop thinking and start sinking your teeth into the best local spots within walking distance.  Let SurpriseMe be your Supper Supervisor.  Your Chow Executive Officer.  The Commander in Feast is here for you.  Trust SurpriseMe to pick a spot nearby with good reviews.  You won't know what it is until you get there!
+
+Please Note:  This app requires a Yelp API App ID and App Secret to work.  Please populate these values in the Config.swift file.
