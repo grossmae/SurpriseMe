@@ -51,12 +51,12 @@ class SearchViewController: SMViewController {
                     return Observable.error(Error.RequestFailed)
                 }
             }
-            .subscribe{ event in
+            .subscribe{ [weak self] event in
                 switch event {
                 case .Next(let results):
-                    print(results)
+                    self?.fetchedSearchResults(results)
                 case .Error(let errorType):
-                    self.presentViewController(SMErrorAlertFactory.alertForError(errorType as? Error ?? Error.LocationUpdateFailed), animated: true, completion: nil)
+                    self?.presentViewController(SMErrorAlertFactory.alertForError(errorType as? Error ?? Error.LocationUpdateFailed), animated: true, completion: nil)
                     print("Error is ", errorType)
                 case .Completed:
                     print("Completed")

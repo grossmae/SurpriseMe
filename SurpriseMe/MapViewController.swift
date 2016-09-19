@@ -58,12 +58,20 @@ class MapViewController: UIViewController {
         locManager.startUpdatingLocation()
         locManager.rx_didUpdateLocations
         .take(1)
-        .subscribeNext { [unowned self] (locations) in
-            if let location = locations.first {
-                let mapURL = MapHelper.mapURLFromLocation(location.coordinate, toLocation: self.finishLocation.coordinates)
-                UIApplication.sharedApplication().openURL(mapURL)
+        .subscribe{ event in
+            switch event {
+            case .Next(let locations):
+                if let location = locations.first {
+                    let mapURL = MapHelper.mapURLFromLocation(location.coordinate, toLocation: self.finishLocation.coordinates)
+                    UIApplication.sharedApplication().openURL(mapURL)
+                }
+            case .Error(let error):
+                self.presentViewController(SMErrorAlertFactory.alertForError(error as? Error ?? Error.LocationUpdateFailed), animated: true, completion: nil)
+            case .Completed:
+                break
             }
-        }.addDisposableTo(disposeBag)
+        }
+        .addDisposableTo(disposeBag)
     }
     
     func fetchCurrentLocation() {
@@ -73,12 +81,20 @@ class MapViewController: UIViewController {
         
         locManager.rx_didUpdateLocations
         .take(1)
-        .subscribeNext { [weak self] (locations) in
-            if let location = locations.first {
-                self?.drawMapAtLocation(location)
-                self?.drawDirectionsFrom(location)
+        .subscribe { [weak self] event in
+            switch event {
+            case .Next(let locations):
+                if let location = locations.first {
+                    self?.drawMapAtLocation(location)
+                    self?.drawDirectionsFrom(location)
+                }
+            case .Error(let error):
+                self?.presentViewController(SMErrorAlertFactory.alertForError(error as? Error ?? Error.LocationUpdateFailed), animated: true, completion: nil)
+            case .Completed:
+                break
             }
-        }.addDisposableTo(disposeBag)
+        }
+        .addDisposableTo(disposeBag)
     }
     
     func drawMapAtLocation(location: CLLocation) {
