@@ -14,21 +14,20 @@ class YelpClient {
     
     static let YelpBaseURL = "https://api.yelp.com/v3/"
     
-    static func searchForLocation(latitude: Double, longitude: Double, token: String) -> Observable<[SMLocation]> {
+    static func searchForLocation(latitude: Double, longitude: Double, token: String, options: SMSearchOptions) -> Observable<[SMLocation]> {
         
         return Observable.create { o in
             var urlComponents = baseURLComponents()
             urlComponents.path = "/v3/businesses/search"
             urlComponents = addQueryToURLComponents(urlComponents, name: "latitude", value: String(latitude))
             urlComponents = addQueryToURLComponents(urlComponents, name: "longitude", value: String(longitude))
-            let defaultSearchOptions = SMSearchOptions()
-            urlComponents = addQueryToURLComponents(urlComponents, name: "term", value: defaultSearchOptions.term)
-            let sortOption = defaultSearchOptions.sort
+            urlComponents = addQueryToURLComponents(urlComponents, name: "term", value: options.term)
+            let sortOption = options.sort
             urlComponents = addQueryToURLComponents(urlComponents, name: "sort", value: sortOption.rawValue)
             if sortOption == .HighestRated || sortOption == .Closest {
                 urlComponents = addQueryToURLComponents(urlComponents, name: "limit", value: "10")
             }
-            urlComponents = addQueryToURLComponents(urlComponents, name: "radius", value: defaultSearchOptions.radius.rawValue)
+            urlComponents = addQueryToURLComponents(urlComponents, name: "radius", value: options.radius.rawValue)
             
             Alamofire.request(.GET, urlComponents.URL!, headers: ["Authorization": "Bearer \(token)"])
                 .responseJSON { (response) in

@@ -31,6 +31,9 @@ class SMErrorAlertFactory {
             alertTitle = "yelp_auth_failed_title".localized
             alertMessage = "yelp_auth_failed_message".localized
             break
+        case .NoLocationsFound:
+            alertTitle = "no_locations_found_title".localized
+            alertMessage = "no_locations_found_message".localized
         }
         
         let errorAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .Alert)

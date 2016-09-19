@@ -38,7 +38,17 @@ class SearchViewController: SMViewController {
     }
     
     func searchButtonPressed() {
-
+        runSearch(SMSearchOptions())
+    }
+    
+    func runExpandedSearch() {
+        var expandedOptions = SMSearchOptions()
+        expandedOptions.radius = .Drivable
+        runSearch(expandedOptions)
+    }
+    
+    func runSearch(options: SMSearchOptions) {
+        
         locManager.startUpdatingLocation()
         
         Observable.zip(SMLocationManager.sharedInstance.getLocation(), YelpAuthManager.sharedInstance.getToken()) {
@@ -46,7 +56,7 @@ class SearchViewController: SMViewController {
             }
             .flatMap { ( locations, token) -> Observable<[SMLocation]> in
                 if let location = locations.first {
-                    return YelpClient.searchForLocation(location.coordinate.latitude, longitude: location.coordinate.longitude, token: token)
+                    return YelpClient.searchForLocation(location.coordinate.latitude, longitude: location.coordinate.longitude, token: token, options: options)
                 } else {
                     return Observable.error(Error.RequestFailed)
                 }
@@ -65,12 +75,14 @@ class SearchViewController: SMViewController {
             .addDisposableTo(disposeBag)
     }
     
-    func optionsButtonPressed() {
-        
-    }
-    
     private func fetchedSearchResults(locations: [SMLocation]) {
-        if let loc = locations.sample {
+        if locations.count == 0 {
+            let retryAction = UIAlertAction(title: "retry".localized, style: .Default, handler: { [weak self] action in
+                self?.runExpandedSearch()
+            })
+            let cancelAction = UIAlertAction(title: "cancel".localized, style: .Default, handler: nil)
+            self.presentViewController(SMErrorAlertFactory.alertForError(.NoLocationsFound, actions: retryAction, cancelAction), animated: true, completion: nil)
+        } else if let loc = locations.sample {
             let mapVC = MapViewController(location: loc)
             let navController = UINavigationController(rootViewController: mapVC)
             presentViewController(navController, animated: true, completion: nil)
