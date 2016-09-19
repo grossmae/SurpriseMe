@@ -33,12 +33,21 @@ class YelpClient {
                 .responseJSON { (response) in
                     switch response.result {
                     case .Success(let data):
-                        let json = JSON(data)
-                        let locations = YelpLocationParser.parseLocationsFromJSON(json)
-                        o.onNext(locations)
-                        o.onCompleted()
-                        break
-                    case .Failure:
+                        let statusCode = (response.response?.statusCode)!
+                        print(statusCode)
+                        switch statusCode {
+                        case 200:
+                            let json = JSON(data)
+                            let locations = YelpLocationParser.parseLocationsFromJSON(json)
+                            o.onNext(locations)
+                            o.onCompleted()
+                        case 401:
+                            o.onError(Error.YelpAuthFailed)
+                        default:
+                            o.onError(Error.RequestFailed)
+                        }
+                    case .Failure(let error):
+                        print(error)
                         o.onError(Error.RequestFailed)
                     }
             }
