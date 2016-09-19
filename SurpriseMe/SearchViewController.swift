@@ -55,8 +55,9 @@ class SearchViewController: SMViewController {
                 switch event {
                 case .Next(let results):
                     print(results)
-                case .Error(let error):
-                    print("Error is ", error)
+                case .Error(let errorType):
+                    self.presentViewController(SMErrorAlertFactory.alertForError(errorType as? Error ?? Error.LocationUpdateFailed), animated: true, completion: nil)
+                    print("Error is ", errorType)
                 case .Completed:
                     print("Completed")
                 }

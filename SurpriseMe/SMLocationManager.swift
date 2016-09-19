@@ -25,5 +25,6 @@ class SMLocationManager {
     
     func getLocation() -> Observable<[CLLocation]> {
         return locationManager.rx_didUpdateLocations
+            .timeout(2, scheduler: MainScheduler.instance)
     }
 }
