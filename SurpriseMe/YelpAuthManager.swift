@@ -44,7 +44,7 @@ class YelpAuthManager {
                     o.onNext(token)
                     o.onCompleted()
                 } else {
-                    o.onError(Error.RequestFailed)
+                    o.onError(Error.YelpAuthFailed)
                 }
             }
             
