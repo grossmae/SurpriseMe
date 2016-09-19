@@ -16,6 +16,7 @@
 
 // Misc
 "close" = "Close";
+"ok" = "OK";
 
 // Error Alert Messages
 "location_update_failed_title" = "Location Update Failed";

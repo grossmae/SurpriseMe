@@ -14,6 +14,7 @@
 		2041E0701D83EE2600898A9B /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041E06F1D83EE2600898A9B /* MapHelper.swift */; };
 		2041E0721D83F0AA00898A9B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041E0711D83F0AA00898A9B /* String.swift */; };
 		2041E0741D83F0CB00898A9B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2041E0731D83F0CB00898A9B /* Localizable.strings */; };
+		20BFC5821D8C9AEB00CB6AAC /* SMErrorAlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BFC5811D8C9AEB00CB6AAC /* SMErrorAlertFactory.swift */; };
 		20D5D4371D67E52F00AA4452 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4361D67E52F00AA4452 /* YelpClient.swift */; };
 		20D5D4391D67E5FB00AA4452 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4381D67E5FB00AA4452 /* Error.swift */; };
 		20D5D43B1D67E68E00AA4452 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D43A1D67E68E00AA4452 /* Config.swift */; };
@@ -47,6 +48,7 @@
 		2041E06F1D83EE2600898A9B /* MapHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
 		2041E0711D83F0AA00898A9B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2041E0731D83F0CB00898A9B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		20BFC5811D8C9AEB00CB6AAC /* SMErrorAlertFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMErrorAlertFactory.swift; sourceTree = "<group>"; };
 		20D5D4361D67E52F00AA4452 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
 		20D5D4381D67E5FB00AA4452 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		20D5D43A1D67E68E00AA4452 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				20D5D4481D6E08A600AA4452 /* SMLocationManager.swift */,
 				20ED56E61D7777410083C408 /* YelpLocationParser.swift */,
 				2041E06F1D83EE2600898A9B /* MapHelper.swift */,
+				20BFC5811D8C9AEB00CB6AAC /* SMErrorAlertFactory.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				20D5D4471D6D70E600AA4452 /* NSDate.swift in Sources */,
 				20ED56ED1D778A5D0083C408 /* Array.swift in Sources */,
 				200979CA1D67E100001C20DF /* AppDelegate.swift in Sources */,
+				20BFC5821D8C9AEB00CB6AAC /* SMErrorAlertFactory.swift in Sources */,
 				20ED56DB1D7771B90083C408 /* SMLocation.swift in Sources */,
 				20ED56F21D795CDB0083C408 /* SMViewController.swift in Sources */,
 				20ED56EF1D7800490083C408 /* SMSearchOptions.swift in Sources */,

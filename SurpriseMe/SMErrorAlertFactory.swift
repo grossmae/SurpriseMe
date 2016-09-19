@@ -8,6 +8,40 @@
 
 import UIKit
 
-class SMErrorAlertFactory: NSObject {
+class SMErrorAlertFactory {
+    
+    static let dismissAction = UIAlertAction(title: "ok".localized, style: .Default) { (action) in
+        
+    }
+    
+    static func alertForError(error: Error, actions: UIAlertAction...) -> UIAlertController {
+        
+        let alertTitle: String!
+        let alertMessage: String!
+        
+        switch error {
+        case .LocationUpdateFailed:
+            alertTitle = "location_update_failed_title".localized
+            alertMessage = "location_update_failed_message".localized
+        case .RequestFailed:
+            alertTitle = "request_failed_title".localized
+            alertMessage = "request_failed_message".localized
+            break
+        case .YelpAuthFailed:
+            alertTitle = "yelp_auth_failed_title".localized
+            alertMessage = "yelp_auth_failed_message".localized
+            break
+        }
+        
+        let errorAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .Alert)
+        
+        if actions.count > 0 {
+           _ = actions.map( {errorAlert.addAction($0)} )
+        } else {
+            errorAlert.addAction(dismissAction)
+        }
+
+        return errorAlert
+    }
 
 }
