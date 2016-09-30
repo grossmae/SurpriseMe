@@ -10,7 +10,7 @@ import UIKit
 
 class SMErrorAlertFactory {
     
-    static let dismissAction = UIAlertAction(title: "ok".localized, style: .Default) { (action) in
+    static let dismissAction = UIAlertAction(title: "ok".localized, style: .default) { (action) in
         
     }
     
@@ -36,7 +36,7 @@ class SMErrorAlertFactory {
             alertMessage = "no_locations_found_message".localized
         }
         
-        let errorAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .Alert)
+        let errorAlert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         
         if actions.count > 0 {
            _ = actions.map( {errorAlert.addAction($0)} )
