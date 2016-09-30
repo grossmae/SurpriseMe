@@ -6,12 +6,12 @@ target 'SurpriseMe' do
   use_frameworks!
 
   # Pods for SurpriseMe
-  pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :tag => '3.5.0'
-  pod 'SwiftyJSON', :git => 'https://github.com/abarnes/SwiftyJSON.git'
-  pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git', :tag => '0.22.0'
-  pod 'Locksmith'
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'Alamofire', '~> 4.0'
+  pod 'SwiftyJSON', '3.0.0'
+  pod 'SnapKit', '~> 3.0'
+  pod 'Locksmith', '~>3.0.0'
+  pod 'RxSwift',    '~> 3.0.0-beta.1'
+  pod 'RxCocoa',    '~> 3.0.0-beta.1'
   
   post_install do |installer|
       installer.pods_project.targets.each do |target|
