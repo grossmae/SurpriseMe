@@ -10,10 +10,10 @@ import Foundation
 
 extension String {
     var localized: String {
-        return NSLocalizedString(self, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
     }
     
-    func localized(interpolatedArguments: [CVarArgType]) -> String {
+    func localized(interpolatedArguments: [CVarArg]) -> String {
         return String(format: self.localized, arguments: interpolatedArguments)
     }
 }
