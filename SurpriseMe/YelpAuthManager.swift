@@ -33,8 +33,8 @@ class YelpAuthManager {
         return self.lockDic[self.tokenKey] as? String
     }()
     
-    lazy var expDate: NSDate? = { [unowned self] in
-        return self.lockDic[self.expKey] as? NSDate
+    lazy var expDate: Date? = { [unowned self] in
+        return self.lockDic[self.expKey] as? Date
     }()
     
     func getToken() -> Observable<String> {
@@ -71,7 +71,7 @@ class YelpAuthManager {
                 let json = JSON(data)
                 let token = json["access_token"].stringValue
                 let expInterval: TimeInterval = json["expires_in"].doubleValue
-                let expDate = NSDate(timeInterval: expInterval, since: Date())
+                let expDate = Date(timeInterval: expInterval, since: Date())
                 self.setToken(token, expiration: expDate)
                 
             case .failure(let error):
@@ -85,7 +85,7 @@ class YelpAuthManager {
         }
     }
     
-    func setToken(_ token: String, expiration: NSDate) {
+    func setToken(_ token: String, expiration: Date) {
         if tokenDateValid(date: expiration) {
             do {
                 try Locksmith.updateData(data: [expKey: expiration, tokenKey: token], forUserAccount: yelpAccount)
@@ -111,9 +111,9 @@ class YelpAuthManager {
         expDate = nil
     }
     
-    func tokenDateValid(date: NSDate?) -> Bool {
+    func tokenDateValid(date: Date?) -> Bool {
         if let date = date {
-            return date.isAfterDate(dateToCompare: NSDate())
+            return date.isAfterDate(dateToCompare: Date())
         }
         return false
     }
