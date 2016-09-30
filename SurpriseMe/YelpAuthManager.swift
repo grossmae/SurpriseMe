@@ -48,7 +48,7 @@ class YelpAuthManager {
                 }
             }
             
-            return Disposables.create()
+            return Disposables.create { }
         }
     }
     

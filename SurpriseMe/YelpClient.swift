@@ -19,56 +19,57 @@ class YelpClient {
         return Observable.create { o in
             var urlComponents = baseURLComponents()
             urlComponents.path = "/v3/businesses/search"
-            urlComponents = addQueryToURLComponents(urlComponents, name: "latitude", value: String(latitude))
-            urlComponents = addQueryToURLComponents(urlComponents, name: "longitude", value: String(longitude))
-            urlComponents = addQueryToURLComponents(urlComponents, name: "term", value: options.term)
+            urlComponents = addQuery(urlComponents: urlComponents, name: "latitude", value: String(latitude))
+            urlComponents = addQuery(urlComponents: urlComponents, name: "longitude", value: String(longitude))
+            urlComponents = addQuery(urlComponents: urlComponents, name: "term", value: options.term)
             let sortOption = options.sort
-            urlComponents = addQueryToURLComponents(urlComponents, name: "sort", value: sortOption.rawValue)
+            urlComponents = addQuery(urlComponents: urlComponents, name: "sort", value: sortOption.rawValue)
             if sortOption == .HighestRated || sortOption == .Closest {
-                urlComponents = addQueryToURLComponents(urlComponents, name: "limit", value: "10")
+                urlComponents = addQuery(urlComponents: urlComponents, name: "limit", value: "10")
             }
-            urlComponents = addQueryToURLComponents(urlComponents, name: "radius", value: options.radius.rawValue)
+            urlComponents = addQuery(urlComponents: urlComponents, name: "radius", value: options.radius.rawValue)
             
-            Alamofire.request(.GET, urlComponents.URL!, headers: ["Authorization": "Bearer \(token)"])
+            Alamofire.request(urlComponents.url!, method: .get, parameters: nil, encoding: URLEncoding.default, headers: ["Authorization": "Bearer \(token)"])
                 .responseJSON { (response) in
                     switch response.result {
-                    case .Success(let data):
+                    case .success(let data):
                         let statusCode = (response.response?.statusCode)!
                         print(statusCode)
                         switch statusCode {
                         case 200:
                             let json = JSON(data)
-                            let locations = YelpLocationParser.parseLocationsFromJSON(json)
+                            let locations = YelpLocationParser.parseLocationsFromJSON(json: json)
                             o.onNext(locations)
                             o.onCompleted()
                         case 401:
-                            o.onError(Error.YelpAuthFailed)
+                            o.onError(SMError.YelpAuthFailed)
                         default:
-                            o.onError(Error.RequestFailed)
+                            o.onError(SMError.RequestFailed)
                         }
-                    case .Failure(let error):
+                    case .failure(let error):
                         print(error)
-                        o.onError(Error.RequestFailed)
+                        o.onError(SMError.RequestFailed)
                     }
             }
-            return AnonymousDisposable { }
+            return Disposables.create { }
         }
         
     }
 
-    private static func baseURLComponents() -> NSURLComponents {
-        let urlComponents = NSURLComponents()
+    private static func baseURLComponents() -> URLComponents {
+        var urlComponents = URLComponents()
         urlComponents.scheme = "https";
         urlComponents.host = "api.yelp.com";
         return urlComponents;
     }
     
-    private static func addQueryToURLComponents(urlComponents: NSURLComponents, name: String, value: String) -> NSURLComponents {
-        let query = NSURLQueryItem(name: name, value: value)
-        if urlComponents.queryItems == nil {
-            urlComponents.queryItems = []
+    private static func addQuery(urlComponents: URLComponents, name: String, value: String) -> URLComponents {
+        let query = URLQueryItem(name: name, value: value)
+        var components = urlComponents
+        if components.queryItems == nil {
+            components.queryItems = []
         }
-        urlComponents.queryItems?.append(query)
-        return urlComponents
+        components.queryItems?.append(query)
+        return components
     }
 }
