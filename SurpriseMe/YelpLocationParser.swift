@@ -18,18 +18,18 @@ class YelpLocationParser {
         print(json)
         for (_,loc):(String, JSON) in json["businesses"] {
             
-            let coordinates = parseCoordinatesFromYelpCoordinates(loc["coordinates"])
+            let coordinates = parseCoordinatesFromYelpCoordinates(coordinates: loc["coordinates"])
             let yelpID = loc["id"].stringValue
             let name = loc["name"].stringValue
-            let address = parseAddressFromYelpLocation(loc["location"])
+            let address = parseAddressFromYelpLocation(location: loc["location"])
             let phoneNumber = loc["phone"].string
             let websiteURL = loc["url"].URL
             
-            let price = parsePriceFromYelpRange(loc["price"].stringValue)
-            let rating = parseRatingFromYelpScale(loc["rating"].doubleValue)
+            let price = parsePriceFromYelpRange(dollars: loc["price"].stringValue)
+            let rating = parseRatingFromYelpScale(rating: loc["rating"].doubleValue)
             let reviewCount = loc["review_count"].int ?? 0
             
-            let categories = parseCategoriesFromYelpCategories(loc["categories"])
+            let categories = parseCategoriesFromYelpCategories(catJSON: loc["categories"])
             
             locations.append(SMLocation(coordinates: coordinates, yelpID: yelpID, name: name, address: address, phoneNumber: phoneNumber, websiteURL: websiteURL, price: price, rating: rating, reviewCount: reviewCount, categories: categories, openTimes: nil))
         }
