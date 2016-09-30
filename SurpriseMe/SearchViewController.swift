@@ -35,6 +35,7 @@ class SearchViewController: SMViewController {
             make.center.equalTo(0)
         }
         searchButton.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
+        
     }
     
     func searchButtonPressed() {

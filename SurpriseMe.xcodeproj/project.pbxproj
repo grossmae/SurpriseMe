@@ -11,6 +11,7 @@
 		200979CC1D67E100001C20DF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200979CB1D67E100001C20DF /* SearchViewController.swift */; };
 		200979D11D67E100001C20DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 200979D01D67E100001C20DF /* Assets.xcassets */; };
 		200979D41D67E100001C20DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 200979D21D67E100001C20DF /* LaunchScreen.storyboard */; };
+		201DC9871D9EE97500F0FD20 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201DC9861D9EE97500F0FD20 /* CLLocationManager+Rx.swift */; };
 		2041E0701D83EE2600898A9B /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041E06F1D83EE2600898A9B /* MapHelper.swift */; };
 		2041E0721D83F0AA00898A9B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041E0711D83F0AA00898A9B /* String.swift */; };
 		2041E0741D83F0CB00898A9B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2041E0731D83F0CB00898A9B /* Localizable.strings */; };
@@ -45,6 +46,7 @@
 		200979D01D67E100001C20DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		200979D31D67E100001C20DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		200979D51D67E100001C20DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		201DC9861D9EE97500F0FD20 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 		2041E06F1D83EE2600898A9B /* MapHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
 		2041E0711D83F0AA00898A9B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2041E0731D83F0CB00898A9B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				20D5D4461D6D70E600AA4452 /* Date.swift */,
 				2041E0711D83F0AA00898A9B /* String.swift */,
 				20ED56EC1D778A5D0083C408 /* Array.swift */,
+				201DC9861D9EE97500F0FD20 /* CLLocationManager+Rx.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				20ED56E31D7773670083C408 /* SMCategories.swift in Sources */,
 				20D5D4491D6E08A600AA4452 /* SMLocationManager.swift in Sources */,
 				20ED56E11D7772D60083C408 /* SMRating.swift in Sources */,
+				201DC9871D9EE97500F0FD20 /* CLLocationManager+Rx.swift in Sources */,
 				20D5D4391D67E5FB00AA4452 /* Error.swift in Sources */,
 				20ED56EB1D7787DF0083C408 /* MapViewController.swift in Sources */,
 			);

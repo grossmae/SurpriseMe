@@ -32,42 +32,42 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBarHidden = false
-        navigationController?.navigationBar.translucent = false
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.isTranslucent = false
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "close".localized, style: .Plain, target: self, action: #selector(MapViewController.closePressed))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "close".localized, style: .plain, target: self, action: #selector(MapViewController.closePressed))
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "open_in_maps".localized, style: .Plain, target: self, action: #selector(MapViewController.openInMapsPressed))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "open_in_maps".localized, style: .plain, target: self, action: #selector(MapViewController.openInMapsPressed))
         
         view.addSubview(mapView)
-        mapView.snp_makeConstraints { (make) in
+        mapView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
         }
         mapView.showsUserLocation = true
         mapView.delegate = self
         
-        drawMapAtLocation(finishLocation.clLoc)
+        drawMapAtLocation(location: finishLocation.clLoc)
         fetchCurrentLocation()
     }
     
     func closePressed() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     func openInMapsPressed() {
         locManager.startUpdatingLocation()
-        locManager.rx_didUpdateLocations
+        locManager.rx.didUpdateLocations
         .take(1)
         .subscribe{ event in
             switch event {
-            case .Next(let locations):
+            case .next(let locations):
                 if let location = locations.first {
-                    let mapURL = MapHelper.mapURLFromLocation(location.coordinate, toLocation: self.finishLocation.coordinates)
-                    UIApplication.sharedApplication().openURL(mapURL)
+                    let mapURL = MapHelper.mapURLFromLocation(fromLocation: location.coordinate, toLocation: self.finishLocation.coordinates)
+                    UIApplication.shared.openURL(mapURL)
                 }
-            case .Error(let error):
-                self.presentViewController(SMErrorAlertFactory.alertForError(error as? Error ?? Error.LocationUpdateFailed), animated: true, completion: nil)
-            case .Completed:
+            case .error(let error):
+                self.present(SMErrorAlertFactory.alertForError(error: error as? SMError ?? SMError.LocationUpdateFailed), animated: true, completion: nil)
+            case .completed:
                 break
             }
         }
@@ -79,18 +79,18 @@ class MapViewController: UIViewController {
         
         locManager.startUpdatingLocation()
         
-        locManager.rx_didUpdateLocations
+        locManager.rx.didUpdateLocations
         .take(1)
         .subscribe { [weak self] event in
             switch event {
-            case .Next(let locations):
+            case .next(let locations):
                 if let location = locations.first {
-                    self?.drawMapAtLocation(location)
-                    self?.drawDirectionsFrom(location)
+                    self?.drawMapAtLocation(location: location)
+                    self?.drawDirectionsFrom(startLocation: location)
                 }
-            case .Error(let error):
-                self?.presentViewController(SMErrorAlertFactory.alertForError(error as? Error ?? Error.LocationUpdateFailed), animated: true, completion: nil)
-            case .Completed:
+            case .error(let error):
+                self?.present(SMErrorAlertFactory.alertForError(error: error as? SMError ?? SMError.LocationUpdateFailed), animated: true, completion: nil)
+            case .completed:
                 break
             }
         }
@@ -121,17 +121,17 @@ class MapViewController: UIViewController {
         let directionsRequest = MKDirectionsRequest()
         directionsRequest.source = startMapItem
         directionsRequest.destination = finishMapItem
-        directionsRequest.transportType = .Walking
+        directionsRequest.transportType = .walking
         
         let directions = MKDirections(request: directionsRequest)
-        directions.calculateDirectionsWithCompletionHandler {[weak self] (response, error) in
+        directions.calculate {[weak self] (response, error) in
             if let _ = error {
                 return
             }
             
             if let response = response {
                 let route = response.routes[0]
-                self?.mapView.addOverlay(route.polyline, level: MKOverlayLevel.AboveRoads)
+                self?.mapView.add(route.polyline, level: MKOverlayLevel.aboveRoads)
                 
                 let routeRect = route.polyline.boundingMapRect
                 let mapRect = MKMapRect(origin: MKMapPoint(x: routeRect.origin.x - 2500, y: routeRect.origin.y - 2500), size: MKMapSize(width: routeRect.size.width + 5000, height: routeRect.size.height + 5000))
@@ -143,9 +143,9 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.cyanColor()
+        renderer.strokeColor = UIColor.cyan
         renderer.lineWidth = 5.0
         
         return renderer

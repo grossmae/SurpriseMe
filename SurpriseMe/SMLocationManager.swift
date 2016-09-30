@@ -8,9 +8,10 @@
 
 import Foundation
 import CoreLocation
-import RxSwift
-import RxCocoa
-
+#if !RX_NO_MODULE
+    import RxSwift
+    import RxCocoa
+#endif
 class SMLocationManager {
     
     static let sharedInstance = SMLocationManager()
@@ -24,7 +25,8 @@ class SMLocationManager {
     }
     
     func getLocation() -> Observable<[CLLocation]> {
-        return locationManager.rx_didUpdateLocations
+        
+        return locationManager.rx.didUpdateLocations
             .timeout(2, scheduler: MainScheduler.instance)
     }
 }
