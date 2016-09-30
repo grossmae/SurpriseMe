@@ -14,7 +14,7 @@ class SMErrorAlertFactory {
         
     }
     
-    static func alertForError(error: Error, actions: UIAlertAction...) -> UIAlertController {
+    static func alertForError(error: SMError, actions: UIAlertAction...) -> UIAlertController {
         
         let alertTitle: String!
         let alertMessage: String!

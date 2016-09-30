@@ -17,8 +17,8 @@ class SearchViewController: SMViewController {
     
     let searchButton: UIButton = {
        let searchButton = UIButton()
-        searchButton.setTitle("search".localized, forState: .Normal)
-        searchButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        searchButton.setTitle("search".localized, for: .normal)
+        searchButton.setTitleColor(UIColor.black, for: .normal)
         return searchButton
     }()
     
@@ -26,25 +26,25 @@ class SearchViewController: SMViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
         
         view.addSubview(searchButton)
-        searchButton.snp_makeConstraints { (make) in
+        searchButton.snp.makeConstraints { (make) in
             make.height.equalTo(50)
             make.width.equalTo(150)
             make.center.equalTo(0)
         }
-        searchButton.addTarget(self, action: #selector(searchButtonPressed), forControlEvents: .TouchUpInside)
+        searchButton.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
     }
     
     func searchButtonPressed() {
-        runSearch(SMSearchOptions())
+        runSearch(options: SMSearchOptions())
     }
     
     func runExpandedSearch() {
         var expandedOptions = SMSearchOptions()
         expandedOptions.radius = .Drivable
-        runSearch(expandedOptions)
+        runSearch(options: expandedOptions)
     }
     
     func runSearch(options: SMSearchOptions) {
@@ -56,19 +56,19 @@ class SearchViewController: SMViewController {
             }
             .flatMap { ( locations, token) -> Observable<[SMLocation]> in
                 if let location = locations.first {
-                    return YelpClient.searchForLocation(location.coordinate.latitude, longitude: location.coordinate.longitude, token: token, options: options)
+                    return YelpClient.searchForLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, token: token, options: options)
                 } else {
-                    return Observable.error(Error.RequestFailed)
+                    return Observable.error(SMError.RequestFailed)
                 }
             }
             .subscribe{ [weak self] event in
                 switch event {
-                case .Next(let results):
-                    self?.fetchedSearchResults(results)
-                case .Error(let errorType):
-                    self?.presentViewController(SMErrorAlertFactory.alertForError(errorType as? Error ?? Error.LocationUpdateFailed), animated: true, completion: nil)
+                case .next(let results):
+                    self?.fetchedSearchResults(locations: results)
+                case .error(let errorType):
+                    self?.present(SMErrorAlertFactory.alertForError(error: errorType as? SMError ?? SMError.LocationUpdateFailed), animated: true, completion: nil)
                     print("Error is ", errorType)
-                case .Completed:
+                case .completed:
                     print("Completed")
                 }
             }
@@ -77,15 +77,15 @@ class SearchViewController: SMViewController {
     
     private func fetchedSearchResults(locations: [SMLocation]) {
         if locations.count == 0 {
-            let retryAction = UIAlertAction(title: "retry".localized, style: .Default, handler: { [weak self] action in
+            let retryAction = UIAlertAction(title: "retry".localized, style: .default, handler: { [weak self] action in
                 self?.runExpandedSearch()
             })
-            let cancelAction = UIAlertAction(title: "cancel".localized, style: .Default, handler: nil)
-            self.presentViewController(SMErrorAlertFactory.alertForError(.NoLocationsFound, actions: retryAction, cancelAction), animated: true, completion: nil)
+            let cancelAction = UIAlertAction(title: "cancel".localized, style: .default, handler: nil)
+            self.present(SMErrorAlertFactory.alertForError(error: SMError.NoLocationsFound, actions: retryAction, cancelAction), animated: true, completion: nil)
         } else if let loc = locations.sample {
             let mapVC = MapViewController(location: loc)
             let navController = UINavigationController(rootViewController: mapVC)
-            presentViewController(navController, animated: true, completion: nil)
+            present(navController, animated: true, completion: nil)
         }
         
     }
