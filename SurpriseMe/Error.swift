@@ -6,7 +6,7 @@
 //  Copyright © 2016 Evan Grossman. All rights reserved.
 //
 
-enum Error : ErrorType {
+enum SMError : Error {
     case RequestFailed;
     case YelpAuthFailed;
     case LocationUpdateFailed;

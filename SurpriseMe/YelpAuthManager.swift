@@ -25,8 +25,8 @@ class YelpAuthManager {
                       "client_id":Config.yelp.appID,
                       "client_secret":Config.yelp.appSecret];
     
-    lazy var lockDic: [String:AnyObject?] = { [unowned self] in
-        return Locksmith.loadDataForUserAccount(self.yelpAccount) ?? [:]
+    lazy var lockDic: [String:Any] = { [unowned self] in
+        return Locksmith.loadDataForUserAccount(userAccount: self.yelpAccount) ?? [:]
     }()
     
     lazy var token: String? = { [unowned self] in
@@ -44,51 +44,51 @@ class YelpAuthManager {
                     o.onNext(token)
                     o.onCompleted()
                 } else {
-                    o.onError(Error.YelpAuthFailed)
+                    o.onError(SMError.YelpAuthFailed)
                 }
             }
             
-            return AnonymousDisposable { }
+            return Disposables.create()
         }
     }
     
-    func fetchToken(completion: (token: String?) -> Void) {
+    func fetchToken(completion: @escaping (_ token: String?) -> Void) {
         if let token = self.token {
-            if tokenDateValid(self.expDate) {
-                completion(token: token)
+            if tokenDateValid(date: self.expDate) {
+                completion(token)
                 return
             }
         }
-        requestToken(completion)
+        requestToken(completion: completion)
     }
     
-    func requestToken(completion: ((token: String?) -> Void)?) {
-        Alamofire.request(.POST, authURL, parameters: authParams, encoding: .URL, headers: nil).responseJSON { (response) in
+    func requestToken(completion: ((_ token: String?) -> Void)?) {
+        Alamofire.request(authURL, method: .post, parameters: authParams, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             
             switch response.result {
-            case .Success(let data):
+            case .success(let data):
                
                 let json = JSON(data)
                 let token = json["access_token"].stringValue
-                let expInterval: NSTimeInterval = json["expires_in"].doubleValue
-                let expDate = NSDate(timeInterval: expInterval, sinceDate: NSDate())
+                let expInterval: TimeInterval = json["expires_in"].doubleValue
+                let expDate = NSDate(timeInterval: expInterval, since: Date())
                 self.setToken(token, expiration: expDate)
                 
-            case .Failure(let error):
+            case .failure(let error):
                 print("Request failed with error: \(error)")
                 self.clearToken()
             }
             
             if let completion = completion {
-                completion(token: self.token)
+                completion(self.token)
             }
         }
     }
     
-    func setToken(token: String, expiration: NSDate) {
-        if tokenDateValid(expiration) {
+    func setToken(_ token: String, expiration: NSDate) {
+        if tokenDateValid(date: expiration) {
             do {
-                try Locksmith.updateData([expKey: expiration, tokenKey: token], forUserAccount: yelpAccount)
+                try Locksmith.updateData(data: [expKey: expiration, tokenKey: token], forUserAccount: yelpAccount)
             } catch {
                 print ("error")
             }
@@ -102,7 +102,7 @@ class YelpAuthManager {
     
     func clearToken() {
         do {
-            try Locksmith.deleteDataForUserAccount(yelpAccount)
+            try Locksmith.deleteDataForUserAccount(userAccount: yelpAccount)
         } catch {
             
         }
@@ -113,7 +113,7 @@ class YelpAuthManager {
     
     func tokenDateValid(date: NSDate?) -> Bool {
         if let date = date {
-            return date.isAfterDate(NSDate())
+            return date.isAfterDate(dateToCompare: NSDate())
         }
         return false
     }
