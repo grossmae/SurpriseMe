@@ -12,7 +12,7 @@ class DefaultOptionsViewController: SMViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
-        navigationController?.navigationBarHidden = false
+        view.backgroundColor = UIColor.white
+        navigationController?.isNavigationBarHidden = false
     }
 }
