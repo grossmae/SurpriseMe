@@ -15,6 +15,13 @@ class SearchViewController: SMViewController {
 
     let disposeBag = DisposeBag()
     
+    let logoImageView: UIImageView = {
+        let logoImageView = UIImageView()
+        logoImageView.image = UIImage(named: "SMLogo")
+        logoImageView.contentMode = .scaleAspectFit
+        return logoImageView
+    }()
+    
     let searchButton: UIButton = {
        let searchButton = UIButton()
         searchButton.setTitle("search".localized, for: .normal)
@@ -28,11 +35,21 @@ class SearchViewController: SMViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         
+        view.addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { (make) in
+            
+            make.left.equalTo(10)
+            make.right.equalTo(-10)
+            make.top.equalTo(85)
+            make.centerX.equalTo(0)
+        }
+        
         view.addSubview(searchButton)
         searchButton.snp.makeConstraints { (make) in
             make.height.equalTo(50)
             make.width.equalTo(150)
-            make.center.equalTo(0)
+            make.centerX.equalTo(0)
+            make.bottom.equalTo(-20)
         }
         searchButton.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
         
