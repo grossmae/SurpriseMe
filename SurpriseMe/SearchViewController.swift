@@ -61,7 +61,7 @@ class SearchViewController: SMViewController {
         descriptionTextView.snp.makeConstraints { (make) in
             make.left.equalTo(13)
             make.right.equalTo(-13)
-            make.top.equalTo(logoImageView.snp.bottom).offset(23)
+            make.top.equalTo(logoImageView.snp.bottom).offset(28)
             make.bottom.equalTo(searchButton.snp.top).offset(10)
         }
         
@@ -69,7 +69,7 @@ class SearchViewController: SMViewController {
             make.height.equalTo(120)
             make.width.equalTo(120)
             make.centerX.equalTo(0)
-            make.bottom.equalTo(-40)
+            make.bottom.equalTo(-53)
         }
         searchButton.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
         

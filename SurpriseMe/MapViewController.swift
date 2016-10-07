@@ -45,6 +45,7 @@ class MapViewController: UIViewController {
         }
         mapView.showsUserLocation = true
         mapView.delegate = self
+        mapView.tintColor = UIColor.smBlue
         
         drawMapAtLocation(location: finishLocation.clLoc)
         fetchCurrentLocation()
@@ -145,7 +146,7 @@ class MapViewController: UIViewController {
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.cyan
+        renderer.strokeColor = UIColor.smBlue
         renderer.lineWidth = 5.0
         
         return renderer
