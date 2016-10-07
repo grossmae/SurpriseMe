@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		200979CA1D67E100001C20DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200979C91D67E100001C20DF /* AppDelegate.swift */; };
 		200979CC1D67E100001C20DF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200979CB1D67E100001C20DF /* SearchViewController.swift */; };
-		200979D11D67E100001C20DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 200979D01D67E100001C20DF /* Assets.xcassets */; };
 		200979D41D67E100001C20DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 200979D21D67E100001C20DF /* LaunchScreen.storyboard */; };
 		201DC9871D9EE97500F0FD20 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201DC9861D9EE97500F0FD20 /* CLLocationManager+Rx.swift */; };
+		201DC9891DA75DD800F0FD20 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201DC9881DA75DD800F0FD20 /* UIColor.swift */; };
 		2041E0701D83EE2600898A9B /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041E06F1D83EE2600898A9B /* MapHelper.swift */; };
 		2041E0721D83F0AA00898A9B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041E0711D83F0AA00898A9B /* String.swift */; };
 		2041E0741D83F0CB00898A9B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2041E0731D83F0CB00898A9B /* Localizable.strings */; };
@@ -43,10 +43,10 @@
 		200979C61D67E100001C20DF /* SurpriseMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurpriseMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		200979C91D67E100001C20DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		200979CB1D67E100001C20DF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		200979D01D67E100001C20DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		200979D31D67E100001C20DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		200979D51D67E100001C20DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		201DC9861D9EE97500F0FD20 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		201DC9881DA75DD800F0FD20 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		2041E06F1D83EE2600898A9B /* MapHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
 		2041E0711D83F0AA00898A9B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2041E0731D83F0CB00898A9B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -134,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				200979D51D67E100001C20DF /* Info.plist */,
-				200979D01D67E100001C20DF /* Assets.xcassets */,
 				200979D21D67E100001C20DF /* LaunchScreen.storyboard */,
 				2041E0731D83F0CB00898A9B /* Localizable.strings */,
 			);
@@ -163,6 +162,7 @@
 				2041E0711D83F0AA00898A9B /* String.swift */,
 				20ED56EC1D778A5D0083C408 /* Array.swift */,
 				201DC9861D9EE97500F0FD20 /* CLLocationManager+Rx.swift */,
+				201DC9881DA75DD800F0FD20 /* UIColor.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -279,7 +279,6 @@
 			files = (
 				200979D41D67E100001C20DF /* LaunchScreen.storyboard in Resources */,
 				2041E0741D83F0CB00898A9B /* Localizable.strings in Resources */,
-				200979D11D67E100001C20DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +346,7 @@
 				20ED56E71D7777410083C408 /* YelpLocationParser.swift in Sources */,
 				200979CC1D67E100001C20DF /* SearchViewController.swift in Sources */,
 				20ED56F41D795F570083C408 /* DefaultOptionsViewController.swift in Sources */,
+				201DC9891DA75DD800F0FD20 /* UIColor.swift in Sources */,
 				20ED56DD1D7772290083C408 /* SMAddress.swift in Sources */,
 				20ED56E91D7785870083C408 /* ResultsViewController.swift in Sources */,
 				20D5D4471D6D70E600AA4452 /* Date.swift in Sources */,
