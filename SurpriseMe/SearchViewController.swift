@@ -68,6 +68,8 @@ class SearchViewController: SMViewController {
     
     func runSearch(options: SMSearchOptions) {
         
+        startLoading()
+        
         locManager.startUpdatingLocation()
         
         Observable.zip(SMLocationManager.sharedInstance.getLocation(), YelpAuthManager.sharedInstance.getToken()) {
@@ -85,9 +87,11 @@ class SearchViewController: SMViewController {
                 case .next(let results):
                     self?.fetchedSearchResults(locations: results)
                 case .error(let errorType):
-                    self?.present(SMErrorAlertFactory.alertForError(error: errorType as? SMError ?? SMError.LocationUpdateFailed), animated: true, completion: nil)
+                    self?.stopLoading()
+self?.present(SMErrorAlertFactory.alertForError(error: errorType as? SMError ?? SMError.LocationUpdateFailed), animated: true, completion: nil)
                     print("Error is ", errorType)
                 case .completed:
+                    self?.stopLoading()
                     print("Completed")
                 }
             }
@@ -95,6 +99,7 @@ class SearchViewController: SMViewController {
     }
     
     private func fetchedSearchResults(locations: [SMLocation]) {
+        self.stopLoading()
         if locations.count == 0 {
             let retryAction = UIAlertAction(title: "retry".localized, style: .default, handler: { [weak self] action in
                 self?.runExpandedSearch()

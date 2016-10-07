@@ -248,7 +248,9 @@
 				TargetAttributes = {
 					200979C51D67E100001C20DF = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = XBDP74V2LW;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -474,10 +476,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = XBDP74V2LW;
 				INFOPLIST_FILE = SurpriseMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eagdev.SurpriseMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0ce127e5-10c0-4c4e-9eab-18ea046a85e3";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: *";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -488,10 +494,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = XBDP74V2LW;
 				INFOPLIST_FILE = SurpriseMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eagdev.SurpriseMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0ce127e5-10c0-4c4e-9eab-18ea046a85e3";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS Ad Hoc: *";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
