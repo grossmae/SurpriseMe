@@ -126,9 +126,12 @@ self?.present(SMErrorAlertFactory.alertForError(error: errorType as? SMError ?? 
             let cancelAction = UIAlertAction(title: "cancel".localized, style: .default, handler: nil)
             self.present(SMErrorAlertFactory.alertForError(error: SMError.NoLocationsFound, actions: retryAction, cancelAction), animated: true, completion: nil)
         } else if let loc = locations.sample {
-            let mapVC = MapViewController(location: loc)
-            let navController = UINavigationController(rootViewController: mapVC)
+            let resultsVC = ResultsViewController(locations:[loc, loc, loc])
+            let navController = UINavigationController(rootViewController: resultsVC)
             present(navController, animated: true, completion: nil)
+//            let mapVC = MapViewController(location: loc)
+//            let navController = UINavigationController(rootViewController: mapVC)
+//            present(navController, animated: true, completion: nil)
         }
         
     }
