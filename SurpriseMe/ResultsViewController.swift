@@ -49,7 +49,7 @@ class ResultsViewController: SMViewController {
                 make.left.equalTo(30)
                 make.height.equalTo(90)
             }
-            resultButton.backgroundColor = .yellow
+            resultButton.backgroundColor = UIColor.lightGray
             resultButton.layoutSubviews()
             
             resultButton.rx.tap.asObservable().subscribe(onNext: { [weak self] event in

@@ -12,7 +12,7 @@ class ResultOptionButton: UIButton {
     
     let resultLocation: SMLocation
     
-    let ratingLabel = UILabel()
+    let ratingLabel = RatingView()
     let priceLabel = UILabel()
     let distanceLabel = UILabel()
     
@@ -37,7 +37,7 @@ class ResultOptionButton: UIButton {
     
     func populateContent() {
         
-        ratingLabel.text = "Rating: \(resultLocation.rating)"
+        ratingLabel.rating = resultLocation.rating
         priceLabel.text = "Price: \(resultLocation.price)"
         if let distance = SMLocationManager.sharedInstance.distanceTo(location: resultLocation.clLoc) {
             distanceLabel.text = String(format:"Distance: %.1f miles", (distance / 1609.34))
@@ -52,7 +52,7 @@ class ResultOptionButton: UIButton {
             make.centerX.equalTo(0)
             make.height.equalTo(self).multipliedBy(0.2)
         }
-        ratingLabel.backgroundColor = .red
+        
         
         priceLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(0)
