@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ResultsViewController: SMViewController {
+    
+    let disposeBag = DisposeBag()
     
     var resultLocations: [SMLocation] = []
     
@@ -47,10 +51,16 @@ class ResultsViewController: SMViewController {
             }
             resultButton.backgroundColor = .yellow
             resultButton.layoutSubviews()
+            
+            resultButton.rx.tap.asObservable().subscribe(onNext: { [weak self] event in
+                let mapVC = MapViewController(location: location)
+                let navController = UINavigationController(rootViewController: mapVC)
+                self?.present(navController, animated: true, completion: nil)
+
+                }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .addDisposableTo(disposeBag)
             topView = resultButton
         }
-        
-        
     }
     
 }
