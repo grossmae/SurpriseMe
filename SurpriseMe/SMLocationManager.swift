@@ -12,21 +12,33 @@ import CoreLocation
     import RxSwift
     import RxCocoa
 #endif
-class SMLocationManager {
+class SMLocationManager: NSObject {
     
     static let sharedInstance = SMLocationManager()
     
     let locationManager = CLLocationManager()
     var latestLocation: Variable<CLLocation?> = Variable(nil)
     
-    private init() {
+    private override init() {
+        super.init()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        locationManager.delegate = self
     }
     
     func getLocation() -> Observable<[CLLocation]> {
         
         return locationManager.rx.didUpdateLocations
             .timeout(2, scheduler: MainScheduler.instance)
+    }
+    
+    func distanceTo(location: CLLocation) -> CLLocationDistance? {
+        return latestLocation.value?.distance(from: location)
+    }
+}
+
+extension SMLocationManager: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        latestLocation.value = locations.first
     }
 }

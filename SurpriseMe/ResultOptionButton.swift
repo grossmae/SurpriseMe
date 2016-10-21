@@ -39,7 +39,12 @@ class ResultOptionButton: UIButton {
         
         ratingLabel.text = "Rating: \(resultLocation.rating)"
         priceLabel.text = "Price: \(resultLocation.price)"
-        distanceLabel.text = "Distance: \(resultLocation.coordinates)"
+        if let distance = SMLocationManager.sharedInstance.distanceTo(location: resultLocation.clLoc) {
+            distanceLabel.text = String(format:"Distance: %.1f miles", (distance / 1609.34))
+        } else {
+            distanceLabel.text = "Walkable"
+        }
+        
         
         ratingLabel.snp.makeConstraints { (make) in
             make.top.equalTo(4)
