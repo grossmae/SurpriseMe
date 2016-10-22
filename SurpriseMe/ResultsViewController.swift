@@ -34,22 +34,27 @@ class ResultsViewController: SMViewController {
             make.top.equalTo(topLayoutGuide.snp.bottom).offset(20)
             make.width.equalTo(view)
             make.centerX.equalTo(view)
-            make.height.equalTo(30)
+            make.height.equalTo(45)
         }
         resultsLabel.text = "Results"
+        resultsLabel.font = UIFont(name: "AvenirNext-Medium", size: 40)
+        resultsLabel.textAlignment = .center
+        resultsLabel.textColor = UIColor.smDarkText
+        resultsLabel.backgroundColor = .clear
+        
         
         var topView: UIView = resultsLabel
+        var index = 0
         
         for location in resultLocations {
             let resultButton = ResultOptionButton(location: location)
             view.addSubview(resultButton)
             resultButton.snp.makeConstraints { (make) in
                 make.top.equalTo(topView.snp.bottom).offset(30)
-                make.right.equalTo(-30)
-                make.left.equalTo(30)
-                make.height.equalTo(90)
+                make.width.equalTo(150)
+                make.height.equalTo(110)
+                make.centerX.equalTo(view)
             }
-            resultButton.backgroundColor = UIColor.lightGray
             resultButton.layoutSubviews()
             
             resultButton.rx.tap.asObservable().subscribe(onNext: { [weak self] event in
@@ -60,6 +65,7 @@ class ResultsViewController: SMViewController {
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)
             topView = resultButton
+            index += 1
         }
     }
     

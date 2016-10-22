@@ -29,6 +29,13 @@ class ResultOptionButton: UIButton {
         }
         
         populateContent()
+        
+        backgroundColor = .smBlue
+        layer.cornerRadius = 10
+        layer.shadowOffset = CGSize(width: 4, height: 4)
+        layer.shadowOpacity = 0.8
+        layer.shadowRadius = 0
+        layer.shadowColor = UIColor.darkGray.cgColor
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,10 +46,10 @@ class ResultOptionButton: UIButton {
         
         ratingView.rating = resultLocation.rating
         ratingView.snp.makeConstraints { (make) in
-            make.top.equalTo(4)
+            make.top.equalTo(2)
             make.width.equalTo(self).offset(-8)
             make.centerX.equalTo(0)
-            make.height.equalTo(self).multipliedBy(0.2)
+            make.height.equalTo(self).multipliedBy(0.35)
         }
         
         priceView.price = resultLocation.price
@@ -50,15 +57,15 @@ class ResultOptionButton: UIButton {
             make.centerY.equalTo(0)
             make.width.equalTo(self).offset(-8)
             make.centerX.equalTo(0)
-            make.height.equalTo(self).multipliedBy(0.2)
+            make.height.equalTo(self).multipliedBy(0.35)
         }
         
         distanceView.distance = Float(SMLocationManager.sharedInstance.distanceTo(location: resultLocation.clLoc) ?? -1)
         distanceView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(-4)
+            make.bottom.equalTo(-2)
             make.width.equalTo(self).offset(-8)
             make.centerX.equalTo(0)
-            make.height.equalTo(self).multipliedBy(0.2)
+            make.height.equalTo(self).multipliedBy(0.35)
         }
     }
 
