@@ -36,6 +36,7 @@ class ResultsViewController: SMViewController {
             make.centerX.equalTo(view)
             make.height.equalTo(45)
         }
+        
         resultsLabel.text = "Results"
         resultsLabel.font = UIFont(name: "AvenirNext-Medium", size: 40)
         resultsLabel.textAlignment = .center
@@ -67,6 +68,10 @@ class ResultsViewController: SMViewController {
             topView = resultButton
             index += 1
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
     }
     
 }

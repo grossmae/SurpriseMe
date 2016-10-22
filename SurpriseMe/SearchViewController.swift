@@ -44,7 +44,6 @@ class SearchViewController: SMViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
         
         view.addSubview(logoImageView)
         view.addSubview(descriptionTextView)
@@ -73,6 +72,10 @@ class SearchViewController: SMViewController {
         }
         searchButton.addTarget(self, action: #selector(searchButtonPressed), for: .touchUpInside)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
     }
     
     func searchButtonPressed() {
@@ -125,14 +128,13 @@ self?.present(SMErrorAlertFactory.alertForError(error: errorType as? SMError ?? 
             })
             let cancelAction = UIAlertAction(title: "cancel".localized, style: .default, handler: nil)
             self.present(SMErrorAlertFactory.alertForError(error: SMError.NoLocationsFound, actions: retryAction, cancelAction), animated: true, completion: nil)
-        } else if let loc = locations.sample {
-            let resultsVC = ResultsViewController(locations:[loc, loc, loc])
-            let navController = UINavigationController(rootViewController: resultsVC)
+        } else if locations.count < 3 {
+            let mapVC = MapViewController(location: locations.sample!)
+            let navController = UINavigationController(rootViewController: mapVC)
             present(navController, animated: true, completion: nil)
-//            let mapVC = MapViewController(location: loc)
-//            let navController = UINavigationController(rootViewController: mapVC)
-//            present(navController, animated: true, completion: nil)
+        } else {
+            let resultsVC = ResultsViewController(locations:locations.sample(size: 3))
+            self.navigationController?.pushViewController(resultsVC, animated: true)
         }
-        
     }
 }
