@@ -14,7 +14,7 @@ class ResultOptionButton: UIButton {
     
     let ratingView = RatingView()
     let priceView = PriceView()
-    let distanceLabel = UILabel()
+    let distanceView = DistanceView()
     
     init(location: SMLocation) {
         resultLocation = location
@@ -22,7 +22,7 @@ class ResultOptionButton: UIButton {
         
         addSubview(ratingView)
         addSubview(priceView)
-        addSubview(distanceLabel)
+        addSubview(distanceView)
         
         _ = subviews.map { view in
             view.isUserInteractionEnabled = false
@@ -53,18 +53,13 @@ class ResultOptionButton: UIButton {
             make.height.equalTo(self).multipliedBy(0.2)
         }
         
-        if let distance = SMLocationManager.sharedInstance.distanceTo(location: resultLocation.clLoc) {
-            distanceLabel.text = String(format:"Distance: %.1f miles", (distance / 1609.34))
-        } else {
-            distanceLabel.text = "Walkable"
-        }
-        distanceLabel.snp.makeConstraints { (make) in
+        distanceView.distance = Float(SMLocationManager.sharedInstance.distanceTo(location: resultLocation.clLoc) ?? -1)
+        distanceView.snp.makeConstraints { (make) in
             make.bottom.equalTo(-4)
             make.width.equalTo(self).offset(-8)
             make.centerX.equalTo(0)
             make.height.equalTo(self).multipliedBy(0.2)
         }
-        distanceLabel.backgroundColor = .purple
     }
 
 }

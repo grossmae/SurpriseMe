@@ -39,6 +39,7 @@
 		20F364C11DB9D7C90070961D /* ResultOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F364C01DB9D7C90070961D /* ResultOptionButton.swift */; };
 		20F364C51DBA9B200070961D /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F364C41DBA9B200070961D /* RatingView.swift */; };
 		20F364C91DBAD85F0070961D /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F364C81DBAD85F0070961D /* PriceView.swift */; };
+		20F364CB1DBADBDA0070961D /* DistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F364CA1DBADBDA0070961D /* DistanceView.swift */; };
 		C165F5E23584CC635E011257 /* Pods_SurpriseMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A904A362EB3171D5F8A33CF9 /* Pods_SurpriseMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		20F364C01DB9D7C90070961D /* ResultOptionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultOptionButton.swift; sourceTree = "<group>"; };
 		20F364C41DBA9B200070961D /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		20F364C81DBAD85F0070961D /* PriceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
+		20F364CA1DBADBDA0070961D /* DistanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceView.swift; sourceTree = "<group>"; };
 		5AAFEF8F4AFB2D3E998580B5 /* Pods-SurpriseMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurpriseMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SurpriseMe/Pods-SurpriseMe.debug.xcconfig"; sourceTree = "<group>"; };
 		A904A362EB3171D5F8A33CF9 /* Pods_SurpriseMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurpriseMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -233,6 +235,7 @@
 				20F364C01DB9D7C90070961D /* ResultOptionButton.swift */,
 				20F364C41DBA9B200070961D /* RatingView.swift */,
 				20F364C81DBAD85F0070961D /* PriceView.swift */,
+				20F364CA1DBADBDA0070961D /* DistanceView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20D5D43B1D67E68E00AA4452 /* Config.swift in Sources */,
+				20F364CB1DBADBDA0070961D /* DistanceView.swift in Sources */,
 				20ED56DF1D77729C0083C408 /* SMPrice.swift in Sources */,
 				20F364C11DB9D7C90070961D /* ResultOptionButton.swift in Sources */,
 				2041E0721D83F0AA00898A9B /* String.swift in Sources */,
