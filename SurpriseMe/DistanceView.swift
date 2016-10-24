@@ -10,6 +10,8 @@ import UIKit
 
 class DistanceView: UIView {
 
+    let metersPerMile: Float = 1609.34
+    
     let unknownDistance: Float = -1.0
     
     var distance: Float {
@@ -36,7 +38,7 @@ class DistanceView: UIView {
         }
         distanceLabel.textAlignment = .center
         
-        switch distance {
+        switch (distance / metersPerMile) {
         case 0..<0.25:
             distanceLabel.text = "🏃"
         case 0.25...0.5:
