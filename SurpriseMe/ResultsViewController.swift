@@ -16,6 +16,8 @@ class ResultsViewController: SMViewController {
     
     var resultLocations: [SMLocation] = []
     
+    var resultButtons: [ResultOptionButton] = []
+    
     init(locations: [SMLocation]) {
         resultLocations = locations
         super.init(nibName: nil, bundle: nil)
@@ -49,6 +51,7 @@ class ResultsViewController: SMViewController {
         
         for location in resultLocations {
             let resultButton = ResultOptionButton(location: location)
+            resultButtons.append(resultButton)
             view.addSubview(resultButton)
             resultButton.snp.makeConstraints { (make) in
                 make.top.equalTo(topView.snp.bottom).offset(30)
@@ -72,6 +75,26 @@ class ResultsViewController: SMViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
+        _ = resultButtons.map { button in
+            button.isHidden = true
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        animateOptions()
+    }
+    
+    func animateOptions() {
+        var index = 0
+        let moveDistance = view.bounds.width + 10
+        for button in resultButtons {
+            button.center.x -= moveDistance
+            button.isHidden = false
+            UIView.animate(withDuration: 0.8, delay: 0.2 * Double(index), options: .curveEaseOut, animations: {
+                button.center.x += moveDistance
+                }, completion: nil)
+            index += 1
+        }
     }
     
 }
