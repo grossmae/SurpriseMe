@@ -23,6 +23,7 @@
 		20D5D4441D6B87A400AA4452 /* YelpAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4431D6B87A400AA4452 /* YelpAuthManager.swift */; };
 		20D5D4471D6D70E600AA4452 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4461D6D70E600AA4452 /* Date.swift */; };
 		20D5D4491D6E08A600AA4452 /* SMLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4481D6E08A600AA4452 /* SMLocationManager.swift */; };
+		20E9C4341DBEBA6900DDE516 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20E9C4331DBEBA6900DDE516 /* Assets.xcassets */; };
 		20ED56DB1D7771B90083C408 /* SMLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56DA1D7771B90083C408 /* SMLocation.swift */; };
 		20ED56DD1D7772290083C408 /* SMAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56DC1D7772290083C408 /* SMAddress.swift */; };
 		20ED56DF1D77729C0083C408 /* SMPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED56DE1D77729C0083C408 /* SMPrice.swift */; };
@@ -75,6 +76,7 @@
 		20D5D4431D6B87A400AA4452 /* YelpAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpAuthManager.swift; sourceTree = "<group>"; };
 		20D5D4461D6D70E600AA4452 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		20D5D4481D6E08A600AA4452 /* SMLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLocationManager.swift; sourceTree = "<group>"; };
+		20E9C4331DBEBA6900DDE516 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20ED56DA1D7771B90083C408 /* SMLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMLocation.swift; sourceTree = "<group>"; };
 		20ED56DC1D7772290083C408 /* SMAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMAddress.swift; sourceTree = "<group>"; };
 		20ED56DE1D77729C0083C408 /* SMPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMPrice.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		20D5D4341D67E4ED00AA4452 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				20E9C4331DBEBA6900DDE516 /* Assets.xcassets */,
 				200979D51D67E100001C20DF /* Info.plist */,
 				200979D21D67E100001C20DF /* LaunchScreen.storyboard */,
 				2041E0731D83F0CB00898A9B /* Localizable.strings */,
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				200979D41D67E100001C20DF /* LaunchScreen.storyboard in Resources */,
+				20E9C4341DBEBA6900DDE516 /* Assets.xcassets in Resources */,
 				2041E0741D83F0CB00898A9B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
