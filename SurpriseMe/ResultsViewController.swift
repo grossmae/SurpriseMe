@@ -55,8 +55,8 @@ class ResultsViewController: SMViewController {
             view.addSubview(resultButton)
             resultButton.snp.makeConstraints { (make) in
                 make.top.equalTo(topView.snp.bottom).offset(30)
-                make.width.equalTo(150)
-                make.height.equalTo(110)
+                make.width.equalTo(187)
+                make.height.equalTo(120)
                 make.centerX.equalTo(view)
             }
             resultButton.layoutSubviews()
