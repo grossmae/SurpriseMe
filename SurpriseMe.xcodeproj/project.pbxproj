@@ -10,6 +10,7 @@
 		200979CA1D67E100001C20DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200979C91D67E100001C20DF /* AppDelegate.swift */; };
 		200979CC1D67E100001C20DF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200979CB1D67E100001C20DF /* SearchViewController.swift */; };
 		200979D41D67E100001C20DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 200979D21D67E100001C20DF /* LaunchScreen.storyboard */; };
+		200F956E1DBFF3B4001270FF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 200F956D1DBFF3B4001270FF /* Settings.bundle */; };
 		201DC9871D9EE97500F0FD20 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201DC9861D9EE97500F0FD20 /* CLLocationManager+Rx.swift */; };
 		201DC9891DA75DD800F0FD20 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201DC9881DA75DD800F0FD20 /* UIColor.swift */; };
 		201DC9911DA8608200F0FD20 /* SurpriseMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201DC9901DA8608200F0FD20 /* SurpriseMeUITests.swift */; };
@@ -61,6 +62,7 @@
 		200979CB1D67E100001C20DF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		200979D31D67E100001C20DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		200979D51D67E100001C20DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		200F956D1DBFF3B4001270FF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		201DC9861D9EE97500F0FD20 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 		201DC9881DA75DD800F0FD20 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		201DC98E1DA8608100F0FD20 /* SurpriseMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurpriseMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +181,7 @@
 				200979D51D67E100001C20DF /* Info.plist */,
 				200979D21D67E100001C20DF /* LaunchScreen.storyboard */,
 				2041E0731D83F0CB00898A9B /* Localizable.strings */,
+				200F956D1DBFF3B4001270FF /* Settings.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				200F956E1DBFF3B4001270FF /* Settings.bundle in Resources */,
 				200979D41D67E100001C20DF /* LaunchScreen.storyboard in Resources */,
 				20E9C4341DBEBA6900DDE516 /* Assets.xcassets in Resources */,
 				2041E0741D83F0CB00898A9B /* Localizable.strings in Resources */,
