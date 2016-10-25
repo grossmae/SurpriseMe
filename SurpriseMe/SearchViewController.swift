@@ -17,7 +17,7 @@ class SearchViewController: SMViewController {
     
     let logoImageView: UIImageView = {
         let logoImageView = UIImageView()
-        logoImageView.image = UIImage(named: "SMLogoBlue")
+        logoImageView.image = UIImage(named: "SMLogo")
         logoImageView.contentMode = .scaleAspectFit
         return logoImageView
     }()
@@ -76,6 +76,10 @@ class SearchViewController: SMViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        SMLocationManager.sharedInstance.locationManager.requestWhenInUseAuthorization()
     }
     
     func searchButtonPressed() {
