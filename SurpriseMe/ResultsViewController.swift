@@ -17,6 +17,9 @@ class ResultsViewController: SMViewController {
     var resultLocations: [SMLocation] = []
     
     var resultButtons: [ResultOptionButton] = []
+    var servingImageViews: [UIImageView] = []
+    
+    var optionsPresentedFlag = false
     
     init(locations: [SMLocation]) {
         resultLocations = locations
@@ -54,12 +57,39 @@ class ResultsViewController: SMViewController {
             resultButtons.append(resultButton)
             view.addSubview(resultButton)
             resultButton.snp.makeConstraints { (make) in
-                make.top.equalTo(topView.snp.bottom).offset(30)
+                make.top.equalTo(topView.snp.bottom).offset(10)
                 make.width.equalTo(187)
                 make.height.equalTo(120)
                 make.centerX.equalTo(view)
             }
             resultButton.layoutSubviews()
+            
+            let servingImageView = UIImageView()
+            servingImageViews.append(servingImageView)
+            view.addSubview(servingImageView)
+            
+            
+            if index % 2 == 0 {
+                servingImageView.image = #imageLiteral(resourceName: "ServingHandLeft")
+                servingImageView.snp.makeConstraints({ (make) in
+                    make.top.equalTo(resultButton.snp.bottom).offset(-30)
+                    make.right.equalTo(resultButton.snp.centerX).offset(10)
+                    make.height.equalTo(52)
+                    make.width.equalTo(352)
+                })
+            } else {
+                servingImageView.image = #imageLiteral(resourceName: "ServingHandRight")
+                servingImageView.snp.makeConstraints({ (make) in
+                    make.top.equalTo(resultButton.snp.bottom).offset(-30)
+                    make.left.equalTo(resultButton.snp.centerX).offset(-10)
+                    make.height.equalTo(52)
+                    make.width.equalTo(352)
+                })
+            }
+            
+            
+            
+            view.bringSubview(toFront: resultButton)
             
             resultButton.rx.tap.asObservable().subscribe(onNext: { [weak self] event in
                 let mapVC = MapViewController(location: location)
@@ -75,24 +105,52 @@ class ResultsViewController: SMViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
-        _ = resultButtons.map { button in
-            button.isHidden = true
+        
+        if !optionsPresentedFlag {
+            _ = resultButtons.map { button in
+                button.isHidden = true
+            }
+            _ = servingImageViews.map { servingHand in
+                servingHand.isHidden = true
+            }
         }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        animateOptions()
+        if !optionsPresentedFlag {
+            animateResults()
+        }
+        
     }
     
-    func animateOptions() {
+    func animateResults() {
+        optionsPresentedFlag = true
         var index = 0
         let moveDistance = view.bounds.width + 10
-        for button in resultButtons {
-            button.center.x -= moveDistance
+        for (button, hand) in zip(resultButtons,servingImageViews) {
+            
+            var move = moveDistance
+            if index % 2 == 1 {
+                move *= -1
+            }
+            
+            button.center.x -= move
             button.isHidden = false
-            UIView.animate(withDuration: 0.8, delay: 0.2 * Double(index), options: .curveEaseOut, animations: {
-                button.center.x += moveDistance
-                }, completion: nil)
+            hand.center.x -= move
+            hand.isHidden = false
+            
+            UIView.animate(withDuration: 0.8, delay: 0.2 * Double(index), options: .curveEaseOut, animations: { 
+                button.center.x += move
+                hand.center.x += move
+                }, completion: { (complete) in
+                    UIView.animate(withDuration: 0.8, animations: { 
+                        hand.center.x -= move
+                        }, completion: { (complete) in
+                            hand.isHidden = true
+                    })
+                    
+            })
             index += 1
         }
     }
