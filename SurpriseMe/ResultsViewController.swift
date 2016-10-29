@@ -33,23 +33,28 @@ class ResultsViewController: SMViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let resultsLabel = UILabel()
-        view.addSubview(resultsLabel)
-        resultsLabel.snp.makeConstraints { (make) in
+        view.backgroundColor = UIColor.smBlue
+        
+        let menuImageView = UIImageView()
+        menuImageView.image = #imageLiteral(resourceName: "Menu")
+        view.addSubview(menuImageView)
+        menuImageView.snp.makeConstraints { (make) in
             make.top.equalTo(topLayoutGuide.snp.bottom).offset(20)
-            make.width.equalTo(view)
+            make.width.equalTo(161)
             make.centerX.equalTo(view)
-            make.height.equalTo(45)
+            make.height.equalTo(52)
         }
         
-        resultsLabel.text = "Results"
-        resultsLabel.font = UIFont(name: "AvenirNext-Medium", size: 40)
-        resultsLabel.textAlignment = .center
-        resultsLabel.textColor = UIColor.smDarkText
-        resultsLabel.backgroundColor = .clear
+        let backButton = UIButton()
+        view.addSubview(backButton)
+        backButton.snp.makeConstraints { (make) in
+            make.top.equalTo(menuImageView)
+            make.width.height.equalTo(menuImageView.snp.height)
+            make.left.equalTo(5)
+        }
+        backButton.setImage(#imageLiteral(resourceName: "BtBack"), for: .normal)
         
-        
-        var topView: UIView = resultsLabel
+        var topView: UIView = menuImageView
         var index = 0
         
         for location in resultLocations {
@@ -57,7 +62,7 @@ class ResultsViewController: SMViewController {
             resultButtons.append(resultButton)
             view.addSubview(resultButton)
             resultButton.snp.makeConstraints { (make) in
-                make.top.equalTo(topView.snp.bottom).offset(10)
+                make.top.equalTo(topView.snp.bottom).offset(18)
                 make.width.equalTo(187)
                 make.height.equalTo(120)
                 make.centerX.equalTo(view)
@@ -88,9 +93,6 @@ class ResultsViewController: SMViewController {
             }
             
             
-            
-            view.bringSubview(toFront: resultButton)
-            
             resultButton.rx.tap.asObservable().subscribe(onNext: { [weak self] event in
                 let mapVC = MapViewController(location: location)
                 let navController = UINavigationController(rootViewController: mapVC)
@@ -104,7 +106,7 @@ class ResultsViewController: SMViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = true
         
         if !optionsPresentedFlag {
             _ = resultButtons.map { button in
@@ -144,7 +146,7 @@ class ResultsViewController: SMViewController {
                 button.center.x += move
                 hand.center.x += move
                 }, completion: { (complete) in
-                    UIView.animate(withDuration: 0.8, animations: { 
+                    UIView.animate(withDuration: 0.8, animations: {
                         hand.center.x -= move
                         }, completion: { (complete) in
                             hand.isHidden = true
