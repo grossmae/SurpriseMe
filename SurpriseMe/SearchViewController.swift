@@ -29,6 +29,7 @@ class SearchViewController: SMViewController {
         descriptionTextView.textAlignment = .center
         descriptionTextView.textColor = UIColor.smDarkText
         descriptionTextView.backgroundColor = .clear
+        descriptionTextView.isEditable = false
         return descriptionTextView
     }()
     

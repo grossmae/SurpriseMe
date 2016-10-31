@@ -36,13 +36,13 @@ extension UIColor {
     
     open class var smGray: UIColor {
         get {
-            return UIColor(red: 1.0, green: 0.83, blue: 0.19 , alpha: 1.0)
+            return UIColor(red: 0.60, green: 0.60, blue: 0.60 , alpha: 1.0)
         }
     }
     
     open class var smDarkText: UIColor {
         get {
-            return UIColor(red: 0.60, green: 0.60, blue: 0.60 , alpha: 0.60)
+            return UIColor(red: 0.30, green: 0.30, blue: 0.30 , alpha: 1.0)
         }
     }
 
