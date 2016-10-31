@@ -48,9 +48,9 @@ class ResultsViewController: SMViewController {
         let backButton = UIButton()
         view.addSubview(backButton)
         backButton.snp.makeConstraints { (make) in
-            make.top.equalTo(menuImageView)
-            make.width.height.equalTo(menuImageView.snp.height)
-            make.left.equalTo(5)
+            make.centerY.equalTo(menuImageView.snp.centerY)
+            make.width.height.equalTo(30)
+            make.left.equalTo(8)
         }
         backButton.setImage(#imageLiteral(resourceName: "BtBack"), for: .normal)
         
