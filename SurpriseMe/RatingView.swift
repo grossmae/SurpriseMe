@@ -46,9 +46,8 @@ class RatingView: UIView {
         case.ExtremelyPositive:
             starLabel.text = "⭐️⭐️⭐️⭐️⭐️"
         case .Unknown:
-            starLabel.text = "???"
+            starLabel.text = "?⭐️?"
         }
-        
-        
     }
+    
 }

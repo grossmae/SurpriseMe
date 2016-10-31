@@ -27,4 +27,5 @@ struct SMLocation {
     var clLoc: CLLocation{
         return CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
     }
+    
 }

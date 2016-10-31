@@ -72,4 +72,5 @@ class YelpClient {
         components.queryItems?.append(query)
         return components
     }
+    
 }

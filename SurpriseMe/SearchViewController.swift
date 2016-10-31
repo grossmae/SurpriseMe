@@ -142,4 +142,5 @@ self?.present(SMErrorAlertFactory.alertForError(error: errorType as? SMError ?? 
             self.navigationController?.pushViewController(resultsVC, animated: true)
         }
     }
+    
 }

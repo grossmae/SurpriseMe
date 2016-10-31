@@ -15,4 +15,5 @@ class MapHelper {
         let urlString = String(format: "http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f&dirflg=w",fromLocation.latitude, fromLocation.longitude, toLocation.latitude, toLocation.longitude)
         return URL(string: urlString)!
     }
+    
 }

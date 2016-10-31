@@ -40,13 +40,6 @@ class ResultOptionButton: UIButton {
         populateContent()
         
         setBackgroundImage(#imageLiteral(resourceName: "BtCloche"), for: .normal)
-        
-//        backgroundColor = .smBlue
-//        layer.cornerRadius = 10
-//        layer.shadowOffset = CGSize(width: 4, height: 4)
-//        layer.shadowOpacity = 0.8
-//        layer.shadowRadius = 0
-//        layer.shadowColor = UIColor.darkGray.cgColor
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -66,14 +59,12 @@ class ResultOptionButton: UIButton {
             make.height.equalTo(self).multipliedBy(0.35)
         }
         
-        
         priceView.snp.makeConstraints { (make) in
             make.centerY.equalTo(0)
             make.width.equalTo(self).offset(-8)
             make.centerX.equalTo(0)
             make.height.equalTo(self).multipliedBy(0.35)
         }
-        
         
         ratingView.snp.makeConstraints { (make) in
             make.bottom.equalTo(0)
@@ -82,5 +73,5 @@ class ResultOptionButton: UIButton {
             make.height.equalTo(self).multipliedBy(0.35)
         }
     }
-
+    
 }

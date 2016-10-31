@@ -15,4 +15,5 @@ class DefaultOptionsViewController: SMViewController {
         view.backgroundColor = UIColor.white
         navigationController?.isNavigationBarHidden = false
     }
+    
 }

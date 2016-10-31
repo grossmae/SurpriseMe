@@ -117,4 +117,5 @@ class YelpAuthManager {
         }
         return false
     }
+    
 }

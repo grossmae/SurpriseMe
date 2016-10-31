@@ -141,6 +141,7 @@ class MapViewController: UIViewController {
         }
         
     }
+    
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -151,4 +152,5 @@ extension MapViewController: MKMapViewDelegate {
         
         return renderer
     }
+    
 }

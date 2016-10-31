@@ -8,10 +8,9 @@
 
 import Foundation
 import CoreLocation
-#if !RX_NO_MODULE
-    import RxSwift
-    import RxCocoa
-#endif
+import RxSwift
+import RxCocoa
+
 class SMLocationManager: NSObject {
     
     static let sharedInstance = SMLocationManager()
@@ -35,10 +34,12 @@ class SMLocationManager: NSObject {
     func distanceTo(location: CLLocation) -> CLLocationDistance? {
         return latestLocation.value?.distance(from: location)
     }
+    
 }
 
 extension SMLocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         latestLocation.value = locations.first
     }
+    
 }

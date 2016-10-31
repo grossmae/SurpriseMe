@@ -80,7 +80,7 @@ class YelpLocationParser {
             return SMRating.Neutral
         case _ where rating < 4:
             return SMRating.Positive
-        case _ where rating < 5:
+        case _ where rating <= 5:
             return SMRating.ExtremelyPositive
         default:
             return SMRating.Unknown
@@ -96,4 +96,5 @@ class YelpLocationParser {
         }
         return categories
     }
+    
 }

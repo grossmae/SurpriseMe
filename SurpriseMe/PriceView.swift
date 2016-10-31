@@ -45,8 +45,7 @@ class PriceView: UIView {
             priceLabel.text = "💸💸💸💸"
         case .Unknown:
             priceLabel.text = "?💸?"
-        }
-        
+        }   
     }
 
 }
