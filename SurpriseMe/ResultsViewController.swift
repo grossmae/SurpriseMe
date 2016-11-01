@@ -54,24 +54,46 @@ class ResultsViewController: SMViewController {
         }
         backButton.setImage(#imageLiteral(resourceName: "BtBack"), for: .normal)
         
-        var topView: UIView = menuImageView
         var index = 0
         
+        let resultsView = UIView()
+        view.addSubview(resultsView)
+        resultsView.snp.makeConstraints { (make) in
+            make.top.equalTo(menuImageView.snp.bottom).offset(10)
+            make.right.left.equalTo(0)
+            make.bottom.equalTo(-14)
+        }
+        
+        var topView = UIView()
+        resultsView.addSubview(topView)
+        topView.snp.makeConstraints { (make) in
+            make.top.left.right.height.equalTo(0)
+        }
+        
         for location in resultLocations {
+            
+            let resultContainerView = UIView()
+            resultsView.addSubview(resultContainerView)
+            resultContainerView.snp.makeConstraints({ (make) in
+                make.top.equalTo(topView.snp.bottom)
+                make.left.right.equalTo(0)
+                make.height.equalTo(resultsView).dividedBy(resultLocations.count)
+            })
+            
+            
             let resultButton = ResultOptionButton(location: location)
             resultButtons.append(resultButton)
-            view.addSubview(resultButton)
+            resultContainerView.addSubview(resultButton)
             resultButton.snp.makeConstraints { (make) in
-                make.top.equalTo(topView.snp.bottom).offset(18)
                 make.width.equalTo(187)
                 make.height.equalTo(120)
-                make.centerX.equalTo(view)
+                make.center.equalTo(resultContainerView)
             }
             resultButton.layoutSubviews()
             
             let servingImageView = UIImageView()
             servingImageViews.append(servingImageView)
-            view.addSubview(servingImageView)
+            resultContainerView.addSubview(servingImageView)
             
             
             if index % 2 == 0 {
@@ -92,7 +114,6 @@ class ResultsViewController: SMViewController {
                 })
             }
             
-            
             resultButton.rx.tap.asObservable().subscribe(onNext: { [weak self] event in
                 let mapVC = MapViewController(location: location)
                 let navController = UINavigationController(rootViewController: mapVC)
@@ -100,9 +121,15 @@ class ResultsViewController: SMViewController {
 
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)
-            topView = resultButton
+            topView = resultContainerView
             index += 1
         }
+        
+        backButton.rx.tap.asObservable().subscribe(onNext: { [weak self] event in
+            resultsView.isHidden = true
+            _ = self?.navigationController?.popViewController(animated: true)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .addDisposableTo(disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
