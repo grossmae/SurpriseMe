@@ -22,15 +22,17 @@ class SearchViewController: SMViewController {
         return logoImageView
     }()
     
-    let descriptionTextView: UITextView = {
-        let descriptionTextView = UITextView()
-        descriptionTextView.text = "intro_description".localized
-        descriptionTextView.font = UIFont(name: "AvenirNext-Medium", size: 20)
-        descriptionTextView.textAlignment = .center
-        descriptionTextView.textColor = UIColor.smDarkText
-        descriptionTextView.backgroundColor = .clear
-        descriptionTextView.isEditable = false
-        return descriptionTextView
+    let descriptionLabel: UILabel = {
+        let descriptionLabel = UILabel()
+        descriptionLabel.text = "intro_description".localized
+        descriptionLabel.font = UIFont(name: "AvenirNext-Medium", size: 24)
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.adjustsFontSizeToFitWidth = true
+        descriptionLabel.textColor = UIColor.smDarkText
+        descriptionLabel.backgroundColor = .clear
+        return descriptionLabel
     }()
     
     let searchButton: UIButton = {
@@ -47,7 +49,7 @@ class SearchViewController: SMViewController {
         super.viewDidLoad()
         
         view.addSubview(logoImageView)
-        view.addSubview(descriptionTextView)
+        view.addSubview(descriptionLabel)
         view.addSubview(searchButton)
         
         logoImageView.snp.makeConstraints { (make) in
@@ -58,11 +60,11 @@ class SearchViewController: SMViewController {
             make.centerX.equalTo(0)
         }
         
-        descriptionTextView.snp.makeConstraints { (make) in
-            make.left.equalTo(13)
-            make.right.equalTo(-13)
-            make.top.equalTo(logoImageView.snp.bottom).offset(28)
-            make.bottom.equalTo(searchButton.snp.top).offset(10)
+        descriptionLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(8)
+            make.right.equalTo(-8)
+            make.top.equalTo(logoImageView.snp.bottom).offset(0)
+            make.bottom.equalTo(searchButton.snp.top).offset(-10)
         }
         
         searchButton.snp.makeConstraints { (make) in

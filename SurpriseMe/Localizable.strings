@@ -8,7 +8,7 @@
 
 // SearchVC
 "search" = "Search";
-"intro_description" = "Can't decide where to eat?\nSurprise Me! will choose a walkable spot that is open.\nJust hit the search button below and follow the map!";
+"intro_description" = "Can't decide where to eat?\nSurprise Me! will choose a\nwalkable spot that is open.\nJust hit the search button\nbelow and follow the map!";
 
 // MapVC
 "open_in_maps" = "Open in Maps";
