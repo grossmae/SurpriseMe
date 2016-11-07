@@ -50,7 +50,7 @@ class ResultsViewController: SMViewController {
         backButton.snp.makeConstraints { (make) in
             make.centerY.equalTo(menuImageView.snp.centerY)
             make.width.height.equalTo(30)
-            make.left.equalTo(8)
+            make.left.equalTo(18)
         }
         backButton.setImage(#imageLiteral(resourceName: "BtBack"), for: .normal)
         
