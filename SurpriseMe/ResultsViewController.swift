@@ -178,7 +178,6 @@ class ResultsViewController: SMViewController {
                         }, completion: { (complete) in
                             hand.isHidden = true
                     })
-                    
             })
             index += 1
         }
