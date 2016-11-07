@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.0.1)
+  - Crashlytics (3.8.3):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.10)
   - Locksmith (3.0.0)
   - RxCocoa (3.0.0-beta.1):
     - RxSwift (~> 3.0.0-beta.1)
@@ -9,6 +12,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - Crashlytics
+  - Fabric
   - Locksmith (~> 3.0.0)
   - RxCocoa (~> 3.0.0-beta.1)
   - RxSwift (~> 3.0.0-beta.1)
@@ -17,12 +22,14 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  Fabric: c73f371ee543e3f0b80608f2674750e4910d1669
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
   RxCocoa: 8cecf331302b8ae5381bbab1bccba4ede2eae6a8
   RxSwift: 0823e8d7969c23bfa9ddfb2afa4881e424a1a710
   SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
   SwiftyJSON: f57b2b44bc166617372d1c70773591fe9f0f5fd4
 
-PODFILE CHECKSUM: 7b15b0f6beb298682c3bdfd2ba3178977332850e
+PODFILE CHECKSUM: 6a75e74759b566031774fc75c43f6823b346d712
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.1.1

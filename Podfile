@@ -12,6 +12,8 @@ target 'SurpriseMe' do
   pod 'Locksmith', '~>3.0.0'
   pod 'RxSwift',    '~> 3.0.0-beta.1'
   pod 'RxCocoa',    '~> 3.0.0-beta.1'
+  pod 'Fabric'
+  pod 'Crashlytics'
   
   post_install do |installer|
       installer.pods_project.targets.each do |target|
