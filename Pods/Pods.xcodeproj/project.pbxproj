@@ -215,7 +215,6 @@
 		AA0B9C265F96CA310C674C330D4C5592 /* Locksmith.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E538476BC671C79009EA26161E4B1D2 /* Locksmith.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AACD2ED8BC9D036234F120993006B8F8 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EED2AB941C2ABA5377ADB3EC2417E9F /* LayoutConstraint.swift */; };
 		AC2A839DD33FF61CA280608CCF5D2C98 /* ControlEvent+Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3B391D5A8917EC0E7A7EC417B348BA /* ControlEvent+Driver.swift */; };
-		ACDF2890EBCEAF6778ED3C44AEBF338C /* RxImagePickerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A5052E3A03E21080568B04B78DB535 /* RxImagePickerDelegateProxy.swift */; };
 		AF064D1F8FC7BE5FCE30AA6A980D7863 /* RxCollectionViewReactiveArrayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778FA127369B71FEB3085B1D9AD1846D /* RxCollectionViewReactiveArrayDataSource.swift */; };
 		AF158CAAF4DD319009AFC855DC995D90 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F405F657334325CE2DEE835B5718A17 /* ParameterEncoding.swift */; };
 		AF16D6F87272E922762D97C4646A8953 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD6079A87849B953D0180817690A76A /* Empty.swift */; };
@@ -540,7 +539,6 @@
 		7805763A1679C06E69CB0C5C247E86C1 /* UISwitch+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UISwitch+Rx.swift"; path = "RxCocoa/iOS/UISwitch+Rx.swift"; sourceTree = "<group>"; };
 		785550832EC8F6DE9C3EB7BC43D49519 /* String+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Rx.swift"; path = "RxSwift/Extensions/String+Rx.swift"; sourceTree = "<group>"; };
 		79653DB37EECF307FD1FEDFDA651E408 /* BehaviorSubject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BehaviorSubject.swift; path = RxSwift/Subjects/BehaviorSubject.swift; sourceTree = "<group>"; };
-		79A5052E3A03E21080568B04B78DB535 /* RxImagePickerDelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxImagePickerDelegateProxy.swift; path = RxCocoa/iOS/Proxies/RxImagePickerDelegateProxy.swift; sourceTree = "<group>"; };
 		79C5A264848A2B229DD5EB2780D5C658 /* ControlProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ControlProperty.swift; path = RxCocoa/Common/CocoaUnits/ControlProperty.swift; sourceTree = "<group>"; };
 		7B2607D20AE8412BF730BF49F91D5FA3 /* Never.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Never.swift; path = RxSwift/Observables/Implementations/Never.swift; sourceTree = "<group>"; };
 		7D56752A13E215DE6F4D74D170550E4E /* StartWith.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StartWith.swift; path = RxSwift/Observables/Implementations/StartWith.swift; sourceTree = "<group>"; };
@@ -951,7 +949,6 @@
 				51FF642A463A12185B70D05094B68710 /* RxCollectionViewDataSourceType.swift */,
 				8E08FE983AC8E4F176A5FD7AA77EEFD5 /* RxCollectionViewDelegateProxy.swift */,
 				778FA127369B71FEB3085B1D9AD1846D /* RxCollectionViewReactiveArrayDataSource.swift */,
-				79A5052E3A03E21080568B04B78DB535 /* RxImagePickerDelegateProxy.swift */,
 				8646206FF0A350DB52B51B5CD9CD0C2A /* RxPickerViewDelegateProxy.swift */,
 				10B532902523FD30EFEF6BF32B888FFA /* RxScrollViewDelegateProxy.swift */,
 				9B0FDE2668110E259BEA9009ACD8BBC3 /* RxSearchBarDelegateProxy.swift */,
@@ -1640,7 +1637,6 @@
 				1610F0D5222842C3FCEDD593AF9334AA /* RxCollectionViewDataSourceType.swift in Sources */,
 				F623860DDAB595D9F5F4A697FBCDB215 /* RxCollectionViewDelegateProxy.swift in Sources */,
 				AF064D1F8FC7BE5FCE30AA6A980D7863 /* RxCollectionViewReactiveArrayDataSource.swift in Sources */,
-				ACDF2890EBCEAF6778ED3C44AEBF338C /* RxImagePickerDelegateProxy.swift in Sources */,
 				CBE57E9E331D2D4B760F528920911005 /* RxPickerViewDelegateProxy.swift in Sources */,
 				79D50454B6FC9AB3F6DD5D6DDB4A034C /* RxScrollViewDelegateProxy.swift in Sources */,
 				5518FAB1AA88C5C7BCACC359C012E094 /* RxSearchBarDelegateProxy.swift in Sources */,
