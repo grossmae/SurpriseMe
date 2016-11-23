@@ -16,6 +16,7 @@
 		2041E0701D83EE2600898A9B /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041E06F1D83EE2600898A9B /* MapHelper.swift */; };
 		2041E0721D83F0AA00898A9B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2041E0711D83F0AA00898A9B /* String.swift */; };
 		2041E0741D83F0CB00898A9B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2041E0731D83F0CB00898A9B /* Localizable.strings */; };
+		20B54E041DE51BFA0055CF6E /* SMRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B54E031DE51BFA0055CF6E /* SMRouter.swift */; };
 		20BFC5821D8C9AEB00CB6AAC /* SMErrorAlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BFC5811D8C9AEB00CB6AAC /* SMErrorAlertFactory.swift */; };
 		20D5D4371D67E52F00AA4452 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4361D67E52F00AA4452 /* YelpClient.swift */; };
 		20D5D4391D67E5FB00AA4452 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D5D4381D67E5FB00AA4452 /* Error.swift */; };
@@ -69,6 +70,7 @@
 		2041E06F1D83EE2600898A9B /* MapHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
 		2041E0711D83F0AA00898A9B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2041E0731D83F0CB00898A9B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		20B54E031DE51BFA0055CF6E /* SMRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMRouter.swift; sourceTree = "<group>"; };
 		20BFC5811D8C9AEB00CB6AAC /* SMErrorAlertFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMErrorAlertFactory.swift; sourceTree = "<group>"; };
 		20D5D4361D67E52F00AA4452 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
 		20D5D4381D67E5FB00AA4452 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				20ED56E61D7777410083C408 /* YelpLocationParser.swift */,
 				2041E06F1D83EE2600898A9B /* MapHelper.swift */,
 				20BFC5811D8C9AEB00CB6AAC /* SMErrorAlertFactory.swift */,
+				20B54E031DE51BFA0055CF6E /* SMRouter.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				20F364C11DB9D7C90070961D /* ResultOptionButton.swift in Sources */,
 				2041E0721D83F0AA00898A9B /* String.swift in Sources */,
 				20D5D4441D6B87A400AA4452 /* YelpAuthManager.swift in Sources */,
+				20B54E041DE51BFA0055CF6E /* SMRouter.swift in Sources */,
 				20D5D4371D67E52F00AA4452 /* YelpClient.swift in Sources */,
 				2041E0701D83EE2600898A9B /* MapHelper.swift in Sources */,
 				20F364C91DBAD85F0070961D /* PriceView.swift in Sources */,
