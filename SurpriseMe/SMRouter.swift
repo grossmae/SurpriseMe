@@ -16,27 +16,43 @@ enum SMRouter: URLRequestConvertible {
     
     func asURLRequest() throws -> URLRequest {
         
-        let result: (path: String , parameters: Parameters) = {
-            
-            switch self {
-            case let .search(lat, lon, options):
-                var params = processOptions(options)
-                params["latitude"] = lat
-                params["longitude"] = lon
-                
-                return ("/businesses/search", params)
-            }
-        }()
-        
         let url = try SMRouter.baseURL.asURL()
-        var urlRequest = URLRequest(url: url.appendingPathComponent(result.path))
+        var urlRequest = URLRequest(url: url.appendingPathComponent(self.path))
+        urlRequest.httpMethod = self.method.rawValue
+        
         
         guard let token = YelpAuthManager.sharedInstance.token
             else { throw SMError.YelpAuthFailed }
         
         urlRequest.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        return try URLEncoding.default.encode(urlRequest, with: result.parameters)
+        return try URLEncoding.default.encode(urlRequest, with: self.params)
+    }
+    
+    var method: Alamofire.HTTPMethod {
+        
+        switch self {
+        case .search:
+            return .get
+        }
+    }
+    
+    var path: String {
+        
+        switch self {
+        case .search:
+            return "/businesses/search"
+        }
+    }
+    
+    var params: Parameters {
+        switch self {
+        case let .search(lat, lon, options):
+            var params = processOptions(options)
+            params["latitude"] = lat
+            params["longitude"] = lon
+            return params
+        }
     }
     
     func processOptions(_ options: SMSearchOptions) -> Parameters {
